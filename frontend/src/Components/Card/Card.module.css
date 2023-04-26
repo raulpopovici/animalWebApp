@@ -1,0 +1,50 @@
+.cardText {
+  color: #333;
+  font-size: 15px;
+  display: block;
+  line-height: 22px;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+}
+
+.priceText {
+  color: #82218b;
+  font-size: 16px;
+  display: block;
+  line-height: 22px;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+}
+
+.priceDecimalPart {
+  color: #82218b;
+  font-size: 0.8em;
+  vertical-align: super;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+}
+
+.buttonContainer {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.addToCartText {
+  color: #fff;
+  font-size: 15px;
+  display: block;
+  line-height: 22px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* .buttonContainer:hover {
+  display: block;
+} */

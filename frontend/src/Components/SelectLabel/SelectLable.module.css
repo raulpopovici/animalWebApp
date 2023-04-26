@@ -1,0 +1,9 @@
+.Select {
+  outline: none;
+  border-radius: 20px;
+  height: 30px;
+}
+
+.Select.Mui-selected {
+  box-shadow: none;
+}

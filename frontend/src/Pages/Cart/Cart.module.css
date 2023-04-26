@@ -1,0 +1,78 @@
+.pageContainer {
+  display: grid;
+  height: 1fr;
+  grid-template-rows: 10px 200px 1fr;
+  background-color: white;
+  overflow: hidden;
+}
+
+.firstRowPageContainer {
+  grid-row: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 400;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.secondRowPageContainer {
+  grid-row: 3;
+  /* display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(1fr 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(1fr, 1fr)); */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.middlePageColumn1 {
+  display: flex;
+  flex-basis: 60%;
+}
+
+.middlePageColumn2 {
+  background-color: blue;
+  width: 400px;
+  height: 400px;
+}
+
+.tableButton {
+  background-color: #efefef;
+  height: 25px;
+  width: 25px;
+  border: 1px solid #efefef;
+  border-radius: 100%;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.tableButton:hover {
+  cursor: pointer;
+}
+
+.tableHeaderText {
+  color: #b3b3b3;
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+  font-size: 17px;
+  line-height: 20px;
+  font-weight: 400;
+}
+.incrementNrOfProducts {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 1.3px solid #efefef;
+  background-color: #efefef;
+  height: 25px;
+  border-radius: 30px;
+  width: 70px;
+}

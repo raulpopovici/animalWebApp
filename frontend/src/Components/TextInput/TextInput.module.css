@@ -1,0 +1,15 @@
+.inputElement {
+  display: flex;
+  height: 50px;
+  width: 400px;
+  border-radius: 10px;
+  border: 1px solid white;
+  background-color: #f2e9e4;
+  outline: none;
+  padding-left: 10px;
+}
+
+.inputElement:focus {
+  background-color: #fff;
+  border: 2px solid #f2e9e4;
+}

@@ -1,0 +1,181 @@
+.pageContainer {
+  display: grid;
+  height: 1fr;
+  grid-template-columns: 20% 60% 20%;
+  background-color: white;
+  overflow: hidden;
+}
+
+.middlePageContainer {
+  height: 100%;
+  grid-column: 2;
+  display: grid;
+  grid-template-rows: 50px 600px 1fr;
+  background-color: white;
+  width: 100%;
+}
+
+.middlePageProductContainer1 {
+  display: grid;
+  grid-row: 2;
+  background-color: white;
+  grid-template-columns: 600px 1fr;
+}
+
+.middlePageProductContainerColumn1 {
+  grid-column: 1;
+}
+
+.middlePageProductContainerColumn2 {
+  grid-column: 2;
+  display: grid;
+  grid-template-rows: 60px 60px 60px 100px 100px;
+}
+
+.middlePageProductContainerColumn2Row1 {
+  grid-row: 1;
+  display: flex;
+  margin-left: 10%;
+  color: #333;
+  font-size: 40px;
+  line-height: 22px;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+  color: #333;
+}
+
+.middlePageProductContainerColumn2Row2 {
+  grid-row: 2;
+  display: flex;
+  flex-direction: row;
+  margin-left: 10%;
+}
+
+.middlePageProductContainerColumn2Row3 {
+  grid-row: 3;
+  display: flex;
+  margin-left: 10%;
+}
+
+.middlePageProductContainerColumn2Row4 {
+  grid-row: 4;
+  display: flex;
+  margin-left: 10%;
+}
+
+.middlePageProductContainerColumn2Row5 {
+  grid-row: 5;
+  display: flex;
+  margin-left: 10%;
+}
+
+@media screen and (max-width: 1000px) {
+  .pageContainer {
+    display: grid;
+    height: 1fr;
+    grid-template-columns: 0% 100% 0%;
+  }
+}
+
+.priceText {
+  color: #82218b;
+  font-size: 30px;
+  display: block;
+  line-height: 40px;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+}
+
+.priceDecimalPart {
+  color: #82218b;
+  font-size: 1.3em;
+  vertical-align: super;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+}
+
+.addToCartProduct {
+  height: 50px;
+  width: 300px;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+  color: white;
+  background-color: #82218b;
+  border: 1px solid #82218b;
+  border-radius: 10px;
+}
+
+.addToCartProduct:hover {
+  cursor: pointer;
+}
+
+.incrementNrOfProducts {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 1.3px solid #ada26f;
+  height: 50px;
+  border-radius: 30px;
+  width: 100px;
+}
+
+.productShortDescription {
+  font-family: "Open Sans", sans-serif;
+  color: #333;
+}
+.productShotDescriptionValue {
+  font-family: "Open Sans", sans-serif;
+  color: #ada26f;
+  margin-left: 7px;
+  margin-right: 20px;
+}
+
+.middlePageProductContainer2 {
+  display: grid;
+  grid-row: 3;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.middlePageProductContainer2Decription {
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.middlePageProductContainer2Composition {
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.middlePageProductContainer2NutritionalAdditives {
+  grid-row: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.middlePageProductContainer2AnalyticalConstituents {
+  grid-row: 4;
+  display: flex;
+  flex-direction: column;
+}
+
+.middlePageProductContainer2TitleRows {
+  font-family: "Open Sans", sans-serif;
+  color: #333;
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.middlePageProductContainer2TextRows {
+  font-family: "Open Sans", sans-serif;
+  color: #333;
+  font-weight: 400;
+  font-size: 15px;
+}

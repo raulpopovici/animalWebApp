@@ -1,0 +1,51 @@
+.pageContainer {
+  display: grid;
+  grid-template-rows: 600px 450px 200px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.quoteAndPictureContainer {
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: 8% 84% 8%;
+}
+
+.quoteAndPictureContainerMiddleColumn {
+  grid-column: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quoteAndPictureContainerMiddleColumn_text {
+  font-family: "Lobster", cursive;
+  font-weight: 400;
+  font-size: 70px;
+  color: #82218b;
+}
+
+.pageGridSecondRow {
+  background-color: red;
+  grid-row: 2;
+}
+
+.pageGridThirdRow {
+  background-color: yellow;
+  grid-row: 3;
+}
+
+.catImage {
+  height: 300px;
+  width: 230px;
+  border-radius: 230px;
+  align-self: flex-start;
+  margin-top: 3%;
+}
+.secondPicture {
+  height: 300px;
+  width: 230px;
+  border-radius: 230px;
+  align-self: flex-end;
+}
