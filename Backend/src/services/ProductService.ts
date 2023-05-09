@@ -205,7 +205,53 @@ export const getNrOfProducts = async (req: Request, res: Response) => {
   res.json(products.length);
 };
 
+export const createProduct = async (req: Request, res: Response) => {
+  try {
+    const {
+      name,
+      price,
+      description,
+      quantity,
+      image,
+      animalType,
+      animalAge,
+      brand,
+      composition,
+      nutritionalAdditives,
+      analyticalConstituents,
+      productWeight,
+      taste,
+    } = req.body;
+
+    // Create a new product entity
+    const product = new Product();
+    product.name = name;
+    product.price = price;
+    product.description = description;
+    product.quantity = quantity;
+    product.image = image;
+    product.animalType = animalType;
+    product.animalAge = animalAge;
+    product.brand = brand;
+    product.composition = composition;
+    product.nutritionalAdditives = nutritionalAdditives;
+    product.analyticalConstituents = analyticalConstituents;
+    product.productWeight = productWeight;
+    product.taste = taste;
+
+    // Save the new product entity to the database
+    const productRepository = AppDataSource.getRepository(Product);
+    const savedProduct = await productRepository.save(product);
+
+    return res.status(201).json(savedProduct);
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: "Failed to create product" });
+  }
+};
+
 module.exports = {
   getProducts,
   getNrOfProducts,
+  createProduct,
 };

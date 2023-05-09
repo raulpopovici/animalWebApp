@@ -6,8 +6,15 @@ import React from "react";
 import { State } from "../../Pages/Food/Food";
 import CloseIcon from "@mui/icons-material/Close";
 
-function TransitionUp(props: JSX.IntrinsicAttributes & SlideProps) {
-  return <Slide {...props} direction="up" />;
+function TransitionUp(
+  props: JSX.IntrinsicAttributes & SlideProps,
+  transitionDirection: number
+) {
+  if (transitionDirection === 0) {
+    return <Slide {...props} direction={"up"} />;
+  } else {
+    return <Slide {...props} direction={"down"} />;
+  }
 }
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
@@ -20,9 +27,11 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
 const SnackbarV2 = ({
   state,
   setState,
+  autohide,
 }: {
   state: State;
   setState: (state: State) => void;
+  autohide?: number;
 }) => {
   const handleClose = () => {
     setState({ ...state, open: false, text: "Product added to cart" });
@@ -37,8 +46,8 @@ const SnackbarV2 = ({
       onClose={handleClose}
       message={text}
       key={vertical + horizontal}
-      TransitionComponent={TransitionUp}
-      autoHideDuration={800}
+      TransitionComponent={(e) => TransitionUp(e, 1)}
+      autoHideDuration={autohide ? autohide : 800}
       action={
         <React.Fragment>
           <IconButton

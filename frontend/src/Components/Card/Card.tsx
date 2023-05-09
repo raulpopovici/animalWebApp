@@ -11,7 +11,8 @@ import { useNavigate } from "react-router-dom";
 import purina from "../../Assets/purina.png";
 import { IProduct } from "../../Interfaces/FoodPageInterfaces";
 import styles from "./Card.module.css";
-import { handleAddToCart } from "../../Pages/Food/FoodController";
+import { handleAddToCart } from "../../Pages/Cart/CartController";
+import { useAuthState } from "../../context/AuthContext";
 
 export const CardComponent = ({
   product,
@@ -27,6 +28,8 @@ export const CardComponent = ({
   const decimalPart = (product.price - integerPart).toFixed(2).slice(1);
   const [showButton, setShowButton] = useState(false);
 
+  const user = useAuthState();
+
   const handleMouseEnter = () => {
     setShowButton(true);
   };
@@ -34,10 +37,23 @@ export const CardComponent = ({
     setShowButton(false);
   };
 
-  const handleAdd = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleAdd = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
-    handleAddToCart(toggleCartState, handleOpenAlert, product, 1);
+    if (
+      await handleAddToCart(
+        toggleCartState,
+        product,
+        1,
+        false,
+        user.user.cartId,
+        user.isAuth
+      )
+    ) {
+      handleOpenAlert("Product added to cart!");
+    } else {
+      handleOpenAlert("Cannot add product to cart!");
+    }
   };
 
   return (
@@ -62,7 +78,7 @@ export const CardComponent = ({
       <CardMedia
         component="img"
         sx={{ height: "200px", width: "200px" }}
-        image={purina}
+        image={product.image}
         alt="Paella dish"
       />
       <CardContent>

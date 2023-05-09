@@ -4,7 +4,13 @@ import {
   Column,
   BaseEntity,
   ManyToOne,
+  JoinColumn,
+  OneToMany,
+  ManyToMany,
 } from "typeorm";
+import Order from "./Order";
+import CartProduct from "./CartProduct";
+import { OrderProduct } from "./OrderProduct";
 
 @Entity()
 export default class Product extends BaseEntity {
@@ -55,4 +61,10 @@ export default class Product extends BaseEntity {
 
   @Column({ nullable: false })
   taste: string;
+
+  @OneToMany(() => CartProduct, (cp) => cp.product)
+  cartConnect: Promise<CartProduct[]>;
+
+  @OneToMany(() => OrderProduct, (orderProduct) => orderProduct.product)
+  orderProducts: OrderProduct[];
 }

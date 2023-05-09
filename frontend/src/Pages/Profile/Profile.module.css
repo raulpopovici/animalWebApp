@@ -1,0 +1,11 @@
+.pageContainer {
+  display: block;
+  margin-top: 100px;
+}
+
+.tabContainer {
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 1440px;
+  margin: auto;
+}

@@ -1,0 +1,131 @@
+.ordersPageContainer {
+  flex-grow: 1;
+}
+.ordersHeader {
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 40px;
+  letter-spacing: 0.35px;
+  margin-bottom: 40px;
+  margin-top: 0px;
+}
+
+.sectionStyle {
+  flex-direction: row-reverse;
+  margin-bottom: 50px;
+}
+
+.orderContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.orderContainer1 {
+  border-radius: 4px;
+  background-color: rgb(255, 255, 255);
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.05) 2px 10px 20px 0px,
+    rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  border: 1px solid rgb(229, 229, 229);
+}
+
+.orderContainer2 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.orderContainer1:hover {
+  cursor: pointer;
+  border: 1px solid #8a0d56;
+}
+
+.hrStyle {
+  position: relative;
+  border: none;
+  background-color: rgb(229, 229, 229);
+  height: 1px;
+  left: -20px;
+  right: -20px;
+  width: calc(100% + 40px);
+  margin: 20px 0px;
+}
+
+.orderBottomPartContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-direction: row;
+}
+
+.orderBottomPartContainer1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.orderBottomPartContainer2 {
+  justify-content: flex-end;
+  box-shadow: none;
+  margin-right: 0px;
+  padding: 5px 0px;
+}
+
+.imagesContainer {
+  justify-content: flex-end;
+  box-shadow: none;
+  padding: 0px;
+  margin-right: 0px;
+  display: flex;
+  flex-direction: row;
+  padding: 30px 20px;
+  margin: 0px -20px;
+}
+
+.imageContainer {
+  margin-right: 5px;
+  width: 73px;
+  height: 96px;
+}
+
+.imageContainer1 {
+  position: relative;
+  width: 100%;
+  border-radius: 2px;
+  height: 100%;
+
+  overflow: hidden;
+}
+
+.imageOverflow {
+  margin-right: 5px;
+  border-radius: 1.7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 83px;
+  height: 96px;
+}
+
+.spanOverflow {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: rgb(155, 155, 155);
+}
+
+.imageStyle {
+  object-fit: contain;
+  object-position: center center;
+  height: 100%;
+  width: 100%;
+}

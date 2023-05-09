@@ -8,6 +8,7 @@ import {
 } from "typeorm";
 import { IsEmail, Length } from "class-validator";
 import bcrypt = require("bcrypt");
+import Order from "./Order";
 
 @Entity()
 export default class User extends BaseEntity {
@@ -36,4 +37,7 @@ export default class User extends BaseEntity {
   async encryptPassword() {
     this.password = await bcrypt.hash(this.password, 8);
   }
+
+  @Column({ nullable: true })
+  cartId: string;
 }

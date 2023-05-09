@@ -1,67 +1,57 @@
-import React, { FC } from "react";
+import React, { Dispatch, FC } from "react";
 import {
   UserRegisterState,
   UserRegisterStateType,
 } from "../../Pages/Register/RegisterReducer";
 import styles from "./TextInput.module.css";
+import {
+  UserLoginState,
+  UserLoginStateType,
+} from "../../Pages/Login/LoginReducer";
+import { handleChangeRegisterTextInput } from "../../Pages/Register/RegisterController";
+import { handleChangeLoginTextInput } from "../../Pages/Login/LoginController";
 
 interface IProps {
   textInputType: string | undefined;
-  dispatchUserReducerData: React.Dispatch<UserRegisterStateType>;
+  screenType?: string;
+  dispatchUserReducerData:
+    | React.Dispatch<UserRegisterStateType>
+    | React.Dispatch<UserLoginStateType>;
 }
 
 export const TextInput: FC<IProps> = ({
   textInputType,
+  screenType,
   dispatchUserReducerData,
 }) => {
-  const handleChange = (e: string) => {
-    switch (textInputType) {
-      case "firstname":
-        dispatchUserReducerData({
-          type: UserRegisterState.firstname,
-          payload: e,
-        });
-        break;
-      case "lastname":
-        dispatchUserReducerData({
-          type: UserRegisterState.lastname,
-          payload: e,
-        });
-        break;
-      case "email":
-        dispatchUserReducerData({
-          type: UserRegisterState.email,
-          payload: e,
-        });
-        break;
-      case "password":
-        dispatchUserReducerData({
-          type: UserRegisterState.password,
-          payload: e,
-        });
-        break;
-      case "confirmPassword":
-        dispatchUserReducerData({
-          type: UserRegisterState.confirmPassword,
-          payload: e,
-        });
-        break;
+  const handleChangeTextInput = (event: string) => {
+    if (screenType === "login") {
+      handleChangeLoginTextInput(
+        event,
+        textInputType || "",
+        dispatchUserReducerData as Dispatch<UserLoginStateType>
+      );
+    } else if (screenType === "register") {
+      handleChangeRegisterTextInput(
+        event,
+        textInputType || "",
+        dispatchUserReducerData as Dispatch<UserRegisterStateType>
+      );
     }
   };
-
   if (textInputType === "password" || textInputType === "confirmPassword") {
     return (
       <input
         className={styles.inputElement}
         type="password"
-        onChange={(event) => handleChange(event.target.value)}
+        onChange={(event) => handleChangeTextInput(event.target.value)}
       ></input>
     );
   } else {
     return (
       <input
         className={styles.inputElement}
-        onChange={(event) => handleChange(event.target.value)}
+        onChange={(event) => handleChangeTextInput(event.target.value)}
       ></input>
     );
   }

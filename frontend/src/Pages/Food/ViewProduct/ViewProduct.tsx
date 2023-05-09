@@ -12,15 +12,14 @@ import Slide, { SlideProps } from "@mui/material/Slide";
 import MuiAlert, { AlertProps } from "@mui/material/Alert";
 import { State } from "../Food";
 import SnackbarV2 from "../../../Components/Snackbar/Snackbar";
-import { handleAddToCart } from "../FoodController";
+import { useAuthState } from "../../../context/AuthContext";
+import { handleAddToCart } from "../../Cart/CartController";
 
 const ViewProduct = ({ toggleCartState }: { toggleCartState: () => void }) => {
   const location = useLocation();
-
+  const user = useAuthState();
   const product: IProduct = location.state.product;
-
   const [productQuantity, setProductQuantity] = useState(1);
-
   const integerPart = Math.trunc(product.price);
   const decimalPart = (product.price - integerPart).toFixed(2).slice(1);
 
@@ -45,10 +44,23 @@ const ViewProduct = ({ toggleCartState }: { toggleCartState: () => void }) => {
     }
   };
 
-  const handleAdd = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleAdd = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
-    handleAddToCart(toggleCartState, handleOpenAlert, product, productQuantity);
+    if (
+      await handleAddToCart(
+        toggleCartState,
+        product,
+        productQuantity,
+        false,
+        user.user.cartId,
+        user.isAuth
+      )
+    ) {
+      handleOpenAlert("Product added to cart!");
+    } else {
+      handleOpenAlert("Cannot add product to cart!");
+    }
   };
 
   return (
@@ -56,7 +68,10 @@ const ViewProduct = ({ toggleCartState }: { toggleCartState: () => void }) => {
       <div className={styles.middlePageContainer}>
         <div className={styles.middlePageProductContainer1}>
           <div className={styles.middlePageProductContainerColumn1}>
-            <img style={{ height: "500px", width: "500px" }} src={purina} />
+            <img
+              style={{ height: "500px", width: "500px" }}
+              src={product.image}
+            />
           </div>
           <div className={styles.middlePageProductContainerColumn2}>
             <div className={styles.middlePageProductContainerColumn2Row1}>

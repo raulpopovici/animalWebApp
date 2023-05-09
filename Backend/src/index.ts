@@ -2,19 +2,34 @@ const express = require("express");
 import cors = require("cors");
 import { AppDataSource } from "./app-data-source";
 import * as dotenv from "dotenv";
+import * as cookieParser from "cookie-parser";
 dotenv.config();
 const app = express();
 
-import productRoutes = require("./controllers/ProductController");
-import authRoutes = require("./controllers/AuthController");
+import * as productRoutes from "./controllers/ProductController";
+import * as authRoutes from "./controllers/AuthController";
+import * as stripeRoutes from "./controllers/StripeController";
+import * as cartRoutes from "./controllers/CartController";
+import * as orderRoutes from "./controllers/OrderController";
 
 AppDataSource.initialize()
   .then(() => {
     app.use(express.json());
-    app.use(cors({ origin: "*" }));
+    app.use(cookieParser());
+    app.use(
+      cors({
+        origin: "http://localhost:3000",
+        credentials: true,
+        optionsSuccessStatus: 200,
+      })
+    );
 
     app.use(productRoutes);
     app.use(authRoutes);
+    app.use(stripeRoutes);
+    app.use(cartRoutes);
+    app.use(orderRoutes);
+
     app.listen(3001, function () {
       console.log(`Backend server running on port ${3001}`);
     });

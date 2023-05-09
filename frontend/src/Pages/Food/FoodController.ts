@@ -132,32 +132,41 @@ export const getNumberOfPages = (productCount: number) => {
   return 1;
 };
 
-export const handleAddToCart = (
-  toggleCartState: () => void,
-  handleOpenAlert: (text: string) => void,
-  product: IProduct,
-  nrOfProducts: number
-) => {
-  try {
-    let data = localStorage.getItem("cart");
-    let cart: ICartProduct[] = [];
-    if (data) {
-      cart = JSON.parse(data) as ICartProduct[];
-    } else {
-      cart = [];
-    }
+// export const handleAddToCart = (
+//   toggleCartState: () => void,
+//   product: IProduct,
+//   nrOfProducts: number,
+//   wantDelete: boolean
+// ) => {
+//   try {
+//     let data = localStorage.getItem("cart");
+//     let cart: ICartProduct[] = [];
+//     if (data) {
+//       cart = JSON.parse(data) as ICartProduct[];
+//     } else {
+//       cart = [];
+//     }
 
-    const productInCart = cart.find((obj) => obj.product.id === product.id);
-    if (productInCart) {
-      productInCart.quantity = productInCart.quantity + nrOfProducts;
-    } else {
-      cart.push({ quantity: nrOfProducts, product: product });
-    }
+//     if (wantDelete) {
+//       const filtered = cart.filter(function (el) {
+//         return el.product.id != product.id;
+//       });
+//       localStorage.setItem("cart", JSON.stringify(filtered));
+//     } else {
+//       const productInCart = cart.find((obj) => obj.product.id === product.id);
+//       if (productInCart) {
+//         productInCart.quantity = productInCart.quantity + nrOfProducts;
+//       } else {
+//         cart.push({ quantity: nrOfProducts, product: product });
+//       }
+//       localStorage.setItem("cart", JSON.stringify(cart));
+//     }
 
-    localStorage.setItem("cart", JSON.stringify(cart));
-    toggleCartState();
-    handleOpenAlert("Product added to cart!");
-  } catch {
-    handleOpenAlert("Cannot add product to cart!");
-  }
-};
+//     toggleCartState();
+//     // handleOpenAlert("Product added to cart!");
+//     return true;
+//   } catch {
+//     // handleOpenAlert("Cannot add product to cart!");
+//     return false;
+//   }
+// };

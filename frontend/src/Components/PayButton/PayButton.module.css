@@ -1,0 +1,51 @@
+.checkoutButton {
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  background-color: #82218b;
+  border: 1px solid #82218b;
+  border-radius: 7px;
+  color: #fff;
+
+  font-family: "Open Sans", sans-serif;
+  font-size: 17px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.checkoutButton:hover {
+  cursor: pointer;
+  background-color: #6e1a7a;
+}
+
+.checkoutButton:active {
+  background-color: #5c1663;
+}
+
+.disabledButton {
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  background-color: #82218b;
+  border: 1px solid #82218b;
+  border-radius: 7px;
+  color: #fff;
+
+  font-family: "Open Sans", sans-serif;
+  font-size: 17px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.disabledButton:hover {
+  cursor: pointer;
+  background-color: #82218b;
+}
+
+.disabledButton:active {
+  background-color: #82218b;
+}

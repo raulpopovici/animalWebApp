@@ -6,11 +6,11 @@ export const createAction = <T extends string | number, P>(
 };
 
 export interface errors {
-  firstnameError: string;
-  lastnameError: string;
-  emailError: string;
-  passwordError: string;
-  confirmPasswordError: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
 }
 
 export interface IUserRegister {
@@ -66,11 +66,11 @@ export const initialUserRegisterData: IUserRegister = {
   password: "",
   confirmPassword: "",
   registerErrors: {
-    firstnameError: "",
-    lastnameError: "",
-    emailError: "",
-    passwordError: "",
-    confirmPasswordError: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
   },
 };
 
