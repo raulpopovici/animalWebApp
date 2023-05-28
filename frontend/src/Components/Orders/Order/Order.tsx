@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { IProduct } from "../../../Interfaces/FoodPageInterfaces";
 import {
   IOrder,
@@ -6,8 +7,17 @@ import {
 import { convertDate, createDeliveryDate } from "../../../Utils/functions";
 import styles from "../Orders.module.css";
 export const Order = ({ order }: { order: IOrder }) => {
+  const navigate = useNavigate();
+  const handleClick = (page: string, index: number) => {
+    navigate(page, {
+      state: { index: index, order: order, viewOrder: true },
+    });
+  };
   return (
-    <section className={styles.sectionStyle}>
+    <section
+      className={styles.sectionStyle}
+      onClick={() => handleClick("/profile", 1)}
+    >
       <div className={styles.orderContainer}>
         <div className={styles.orderContainer1}>
           <div className={styles.orderContainer2}>

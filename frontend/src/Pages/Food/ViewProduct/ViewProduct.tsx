@@ -137,12 +137,12 @@ const ViewProduct = ({ toggleCartState }: { toggleCartState: () => void }) => {
                 sx={{
                   height: "50px",
                   width: "300px",
-                  bgcolor: "#82218b",
+                  bgcolor: "#364a59",
                   fontFamily: "Open Sans, sans-serif",
                   "&:hover": {
                     boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
                     cursor: "pointer",
-                    bgcolor: "#4a5f98",
+                    bgcolor: "#4b5e6c",
                   },
                   display: "flex",
                   justifyContent: "space-evenly",

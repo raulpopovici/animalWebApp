@@ -33,6 +33,10 @@ const Login = () => {
       email: string;
       firstName: string;
       lastName: string;
+      phoneNumber: string;
+      address: string;
+      city: string;
+      country: string;
       cartId: string;
       // ... other user properties
     };
@@ -56,6 +60,10 @@ const Login = () => {
               email: response.data.user.email,
               firstName: response.data.user.firstName,
               lastName: response.data.user.lastName,
+              phoneNumber: response.data.user.phoneNumber,
+              address: response.data.user.address,
+              city: response.data.user.city,
+              country: response.data.user.country,
               cartId: response.data.user.cartId,
               isAdmin: false,
             },

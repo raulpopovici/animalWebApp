@@ -11,6 +11,8 @@ import * as authRoutes from "./controllers/AuthController";
 import * as stripeRoutes from "./controllers/StripeController";
 import * as cartRoutes from "./controllers/CartController";
 import * as orderRoutes from "./controllers/OrderController";
+import * as animalRoutes from "./controllers/AnimalController";
+import * as userRoutes from "./controllers/UserController";
 
 AppDataSource.initialize()
   .then(() => {
@@ -29,6 +31,8 @@ AppDataSource.initialize()
     app.use(stripeRoutes);
     app.use(cartRoutes);
     app.use(orderRoutes);
+    app.use(animalRoutes);
+    app.use(userRoutes);
 
     app.listen(3001, function () {
       console.log(`Backend server running on port ${3001}`);

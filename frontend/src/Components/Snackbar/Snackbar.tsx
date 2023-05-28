@@ -13,7 +13,7 @@ function TransitionUp(
   if (transitionDirection === 0) {
     return <Slide {...props} direction={"up"} />;
   } else {
-    return <Slide {...props} direction={"down"} />;
+    return <Slide {...props} direction={"up"} />;
   }
 }
 
@@ -47,7 +47,7 @@ const SnackbarV2 = ({
       message={text}
       key={vertical + horizontal}
       TransitionComponent={(e) => TransitionUp(e, 1)}
-      autoHideDuration={autohide ? autohide : 800}
+      autoHideDuration={autohide ? autohide : 1000}
       action={
         <React.Fragment>
           <IconButton
@@ -64,7 +64,7 @@ const SnackbarV2 = ({
       <Alert
         onClose={handleClose}
         severity="info"
-        sx={{ width: "100%", bgcolor: "#82218b" }}
+        sx={{ width: "100%", bgcolor: "#364a59" }}
       >
         {text}
       </Alert>

@@ -19,11 +19,11 @@ const ToggleButtonV2 = ({
       }}
       sx={{
         "&.Mui-selected": {
-          bgcolor: "#82218b",
+          bgcolor: "#1e3647",
           color: "#fff",
-          ":hover": { bgcolor: "#82218b", color: "#fff" },
+          ":hover": { bgcolor: "#1e3647", color: "#fff" },
         },
-        borderRadius: "10px",
+        borderRadius: "30px",
         height: "40px",
         width: "80px",
         color: "#000",
@@ -31,7 +31,7 @@ const ToggleButtonV2 = ({
         ":hover": { bgcolor: "#fff", color: "#000" },
         fontSize: "14px",
         fontFamily: "Open Sans, sans-serif",
-        fontWeight: "700",
+        fontWeight: "600",
       }}
     >
       {text}

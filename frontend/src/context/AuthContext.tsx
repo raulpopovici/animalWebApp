@@ -7,7 +7,15 @@ import {
 } from "react";
 import axios from "axios";
 
-type Action = { type: "LOGIN"; payload: UserData } | { type: "LOGOUT" };
+type Action =
+  | { type: "LOGIN"; payload: UserData }
+  | { type: "LOGOUT" }
+  | { type: "FirstName_UPDATE"; payload: string }
+  | { type: "LastName_UPDATE"; payload: string }
+  | { type: "PhoneNumber_UPDATE"; payload: string }
+  | { type: "Address_UPDATE"; payload: string }
+  | { type: "City_UPDATE"; payload: string }
+  | { type: "Country_UPDATE"; payload: string };
 
 export const initialAuthData: IAuthReducerData = {
   isAuth: false,
@@ -16,6 +24,10 @@ export const initialAuthData: IAuthReducerData = {
     email: "",
     firstName: "",
     lastName: "",
+    phoneNumber: "",
+    address: "",
+    city: "",
+    country: "",
     cartId: "",
     isAdmin: false,
   },
@@ -26,6 +38,10 @@ interface UserData {
   email: string;
   firstName: string;
   lastName: string;
+  phoneNumber: string;
+  address: string;
+  city: string;
+  country: string;
   cartId: string;
   isAdmin: boolean;
 }
@@ -59,8 +75,60 @@ const authReducer = (
           email: "",
           firstName: "",
           lastName: "",
+          phoneNumber: "",
+          address: "",
+          city: "",
+          country: "",
           cartId: "",
           isAdmin: false,
+        },
+      };
+    case "FirstName_UPDATE":
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          firstName: action.payload,
+        },
+      };
+    case "LastName_UPDATE":
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          lastName: action.payload,
+        },
+      };
+    case "PhoneNumber_UPDATE":
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          phoneNumber: action.payload,
+        },
+      };
+    case "Address_UPDATE":
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          address: action.payload,
+        },
+      };
+    case "City_UPDATE":
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          city: action.payload,
+        },
+      };
+    case "Country_UPDATE":
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          country: action.payload,
         },
       };
     default:

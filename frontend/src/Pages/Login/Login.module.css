@@ -88,9 +88,10 @@
 }
 
 .text {
-  font-family: "Oswald", sans-serif;
-  font-weight: 400;
-  font-size: 18px;
+  color: hsla(0, 0%, 10%, 0.7);
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  padding-bottom: 3px;
 }
 
 .alternativeSignUpContainer {

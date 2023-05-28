@@ -1,0 +1,162 @@
+.containerOrderDetails {
+  display: flex;
+}
+.ordersHeader {
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 40px;
+  letter-spacing: 0.35px;
+  margin-bottom: 40px;
+  margin-top: 0px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.containerOrderDetailsLeft {
+  display: flex;
+  flex-grow: 1;
+  flex-basis: 0px;
+  flex-direction: column;
+  padding-bottom: 30px;
+}
+
+.containerOrderDetailsRight {
+  display: flex;
+}
+
+.sectionOrderDetails {
+  padding: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sectionOrder {
+  border-radius: 4px;
+  background-color: rgb(255, 255, 255);
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.05) 2px 10px 20px 0px,
+    rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  border: 1px solid rgb(229, 229, 229);
+  height: 1fr;
+}
+
+.datesContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+}
+.hrStyle {
+  position: relative;
+  border: none;
+  background-color: rgb(229, 229, 229);
+  height: 1px;
+  left: -20px;
+  right: -20px;
+  width: calc(100% + 40px);
+  margin: 20px 0px;
+}
+
+.addressDetailsText {
+  padding-bottom: 10px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.35px;
+}
+
+.headerText {
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 40px;
+  letter-spacing: 0.35px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.productSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.productDetails {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.productContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 200px;
+}
+
+.productName {
+  padding-bottom: 10px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.35px;
+  padding-left: 20px;
+}
+
+.priceStyle {
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.35px;
+  padding-right: 20px;
+}
+
+.orderPriceSubtotal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.orderPriceSubtotalAndShipping {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.35px;
+}
+
+.orderPriceSubtotalAndText {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.35px;
+  padding-right: 30px;
+}
+
+.totalsStyle {
+  display: flex;
+  flex-direction: column;
+}
+
+.orderPricetotal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 15px;
+}
+
+.orderPriceTotalAndText {
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.35px;
+  padding-right: 30px;
+}
+
+.orderPriceTotalAndShipping {
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.35px;
+}

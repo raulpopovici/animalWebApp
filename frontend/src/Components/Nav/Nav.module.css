@@ -29,21 +29,25 @@
 }
 
 .centerContainer {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  display: flex;
   align-items: center;
-  width: 60vw;
+  justify-content: space-around;
+  width: 30vw;
+  margin-left: auto;
+  margin-right: auto;
   height: 100%;
 }
 
 .firstCenterButtonContainer {
   color: #fff;
   font-size: 17px;
-  font-weight: 800;
-  grid-column: 2;
-  grid-row: 1;
-  text-transform: uppercase;
+  font-weight: 600;
   font-family: "Open Sans", sans-serif;
+  height: 40px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .firstCenterButtonContainerPressed {
@@ -67,26 +71,63 @@
 .secondCenterButtonContainer {
   color: #fff;
   font-size: 17px;
-  font-weight: 800;
-  grid-column: 4;
-  grid-row: 1;
-  text-transform: uppercase;
+  font-weight: 600;
   font-family: "Open Sans", sans-serif;
+  height: 40px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navButtonActive {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 600;
+  font-family: "Open Sans", sans-serif;
+  height: 40px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #354a59;
+  border: 1px solid #354a59;
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+.navAnimalButtonActive {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 600;
+  font-family: "Open Sans", sans-serif;
+  height: 40px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #354a59;
+  border: 1px solid #354a59;
+  border-radius: 40px;
+  cursor: pointer;
 }
 
 .thirdCenterButtonContainer {
   color: #fff;
   font-size: 17px;
-  font-weight: 800;
-  grid-column: 6;
-  grid-row: 1;
-  text-transform: uppercase;
+  font-weight: 600;
+
   font-family: "Open Sans", sans-serif;
+  height: 40px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .forthCenterButtonContainer {
   color: #fff;
   font-size: 17px;
-  font-weight: 800;
+  font-weight: 600;
   grid-column: 8;
   grid-row: 1;
   text-transform: uppercase;
@@ -95,7 +136,7 @@
 .fifthCenterButtonContainer {
   color: #fff;
   font-size: 15px;
-  font-weight: 800;
+  font-weight: 600;
   grid-column: 10;
   grid-row: 1;
   text-transform: uppercase;
@@ -107,22 +148,51 @@
 .thirdCenterButtonContainer:hover,
 .forthCenterButtonContainer:hover,
 .fifthCenterButtonContainer:hover {
-  color: blue;
+  background-color: #4b5e6c;
+  border: 1px solid #4b5e6c;
+  border-radius: 40px;
   cursor: pointer;
 }
 
 .rightContainer {
-  display: grid;
-  grid-template-columns: repeat(7, 7fr);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: row;
   height: 100%;
   width: 20vw;
 }
 
 .cartContainer {
-  grid-column: 5;
-  grid-row: 1;
   display: flex;
-  align-self: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  height: 40px;
+  width: 100px;
+  padding-right: 20px;
+}
+
+.cartIconClassName {
+  width: 45;
+  height: 45;
+  margin-top: 2px;
+}
+
+.cartIconClassName:hover {
+  cursor: pointer;
+  background-color: #4b5e6c;
+  color: "#fff";
+  border-radius: "40px";
+}
+
+.cartIconClassNameActive {
+  width: 45;
+  height: 45;
+  margin-top: 2px;
+  background-color: #4b5e6c;
+  color: "#fff";
+  border-radius: "40px";
 }
 
 .avatar {
@@ -132,4 +202,24 @@
   align-self: center;
   grid-column: 7;
   grid-row: 1;
+}
+
+.animalMenu {
+  background-color: #82218b;
+  padding-top: 10px;
+}
+
+.animalMenuItem {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+  padding: 10px;
+}
+
+.animalMenuItem:hover {
+  cursor: pointer;
+  background-color: #9b4da2;
+  color: #fff;
 }

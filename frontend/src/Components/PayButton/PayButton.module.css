@@ -4,8 +4,8 @@
   justify-content: center;
   align-items: center;
   height: 50px;
-  background-color: #82218b;
-  border: 1px solid #82218b;
+  background-color: #364a59;
+  border: 1px solid #364a59;
   border-radius: 7px;
   color: #fff;
 
@@ -17,11 +17,11 @@
 
 .checkoutButton:hover {
   cursor: pointer;
-  background-color: #6e1a7a;
+  background-color: #4b5e6c;
 }
 
 .checkoutButton:active {
-  background-color: #5c1663;
+  background-color: #364a59;
 }
 
 .disabledButton {
@@ -30,8 +30,8 @@
   justify-content: center;
   align-items: center;
   height: 50px;
-  background-color: #82218b;
-  border: 1px solid #82218b;
+  background-color: #364a59;
+  border: 1px solid #364a59;
   border-radius: 7px;
   color: #fff;
 
@@ -43,9 +43,9 @@
 
 .disabledButton:hover {
   cursor: pointer;
-  background-color: #82218b;
+  background-color: #364a59;
 }
 
 .disabledButton:active {
-  background-color: #82218b;
+  background-color: #364a59;
 }

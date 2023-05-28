@@ -7,11 +7,33 @@ import styles from "./Profile.module.css";
 import Orders from "../../Components/Orders/Orders";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { IOrder, initialOrder } from "../../Interfaces/OrdersPageInterfaces";
+import Order from "../../Components/Orders/Order/Order";
+import OrderDetails from "../../Components/Orders/OrderDetails/OrderDetails";
+import ProfileDetails from "../../Components/ProfileDetails/ProfileDetails";
+import { useAuthState } from "../../context/AuthContext";
+import Animals from "../../Components/Animals/Animals";
 
 export const Profile = () => {
   const location = useLocation();
-  const initialIndex = location.state.index;
+  const navigate = useNavigate();
+
+  let initialIndex = 0;
+  if (location.state !== undefined && location.state.index !== undefined) {
+    initialIndex = location.state.index;
+  }
+  let order: IOrder = initialOrder;
+  let viewOrder: boolean = false;
+  if (
+    location.state !== undefined &&
+    location.state.index !== undefined &&
+    location.state.order !== undefined &&
+    location.state.viewOrder !== undefined
+  ) {
+    order = location.state.order;
+    viewOrder = location.state.viewOrder;
+  }
   const [index, setIndex] = React.useState(initialIndex);
 
   const { data: orders, refetch } = useQuery(
@@ -24,6 +46,11 @@ export const Profile = () => {
       initialData: [],
     }
   );
+
+  const user = useAuthState();
+  if (!user.isAuth) {
+    navigate("/");
+  }
   return (
     <div className={styles.pageContainer}>
       <div className={styles.tabContainer}>
@@ -45,12 +72,18 @@ export const Profile = () => {
               Animals
             </Tab>
           </TabList>
-          <TabPanel sx={{ paddingLeft: 2 }}>Profile and Security</TabPanel>
-          <TabPanel value={1} sx={{ p: 2 }}>
-            <Orders orders={orders} />
+          <TabPanel value={0} sx={{ paddingLeft: 2 }}>
+            <ProfileDetails />
           </TabPanel>
-          <TabPanel value={2} sx={{ p: 2, minHeight: 200 }}>
-            <b>Third</b> tab panel
+          <TabPanel value={1} sx={{ paddingLeft: 2 }}>
+            {viewOrder ? (
+              <OrderDetails order={order} />
+            ) : (
+              <Orders orders={orders} />
+            )}
+          </TabPanel>
+          <TabPanel value={2} sx={{ paddingLeft: 2, minHeight: 200 }}>
+            <Animals />
           </TabPanel>
         </Tabs>
       </div>

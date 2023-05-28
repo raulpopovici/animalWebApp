@@ -9,6 +9,7 @@ import {
 import { IsEmail, Length } from "class-validator";
 import bcrypt = require("bcrypt");
 import Order from "./Order";
+import { Animal } from "./Animal";
 
 @Entity()
 export default class User extends BaseEntity {
@@ -39,5 +40,20 @@ export default class User extends BaseEntity {
   }
 
   @Column({ nullable: true })
+  phoneNumber: string;
+
+  @Column({ nullable: true })
+  address: string;
+
+  @Column({ nullable: true })
+  city: string;
+
+  @Column({ nullable: true })
+  country: string;
+
+  @Column({ nullable: true })
   cartId: string;
+
+  @OneToMany(() => Animal, (animal) => animal.user)
+  animals: Animal[];
 }

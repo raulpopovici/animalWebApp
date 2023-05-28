@@ -52,8 +52,11 @@ const Cart = ({
 
   const changeQuantity = async (
     isIncrease: boolean,
-    cartItem: ICartProduct
+    cartItem: ICartProduct,
+    e: React.MouseEvent<SVGSVGElement, MouseEvent>
   ) => {
+    e.preventDefault();
+    e.stopPropagation();
     handleAddToCart(
       toggleCartState,
       cartItem.product,
@@ -64,7 +67,12 @@ const Cart = ({
     );
   };
 
-  const handleRemove = async (cartItem: ICartProduct) => {
+  const handleRemove = async (
+    cartItem: ICartProduct,
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    e.stopPropagation();
     await handleAddToCart(
       toggleCartState,
       cartItem.product,
@@ -132,7 +140,7 @@ const Cart = ({
                         <div className={styles.incrementNrOfProducts}>
                           <RemoveIcon
                             className={styles.changeQty}
-                            onClick={() => changeQuantity(false, cartItem)}
+                            onClick={(e) => changeQuantity(false, cartItem, e)}
                           />
                           <div
                             style={{
@@ -146,7 +154,7 @@ const Cart = ({
 
                           <AddIcon
                             className={styles.changeQty}
-                            onClick={() => changeQuantity(true, cartItem)}
+                            onClick={(e) => changeQuantity(true, cartItem, e)}
                           />
                         </div>
                       </div>
@@ -162,7 +170,7 @@ const Cart = ({
                           <Tooltip title="Remove" variant="soft">
                             <button
                               className={styles.tableButton}
-                              onClick={() => handleRemove(cartItem)}
+                              onClick={(e) => handleRemove(cartItem, e)}
                             >
                               <ClearIcon
                                 sx={{ width: "20px", height: "20px" }}

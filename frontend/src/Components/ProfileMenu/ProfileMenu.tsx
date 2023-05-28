@@ -86,7 +86,7 @@ export const ProfileMenu = ({
       <MenuItem onClick={() => handleClick("/profile", 1)}>
         <Avatar /> Orders
       </MenuItem>
-      <MenuItem onClick={handleClose}>
+      <MenuItem onClick={() => handleClick("/profile", 2)}>
         <Avatar /> Animals
       </MenuItem>
       <Divider />

@@ -113,6 +113,10 @@ export const me = async (req: Request, res: Response) => {
       firstName: user?.firstName,
       lastName: user?.lastName,
       isAdmin: user?.isAdmin,
+      phoneNumber: user?.phoneNumber,
+      address: user?.address,
+      city: user?.city,
+      country: user?.country,
       cartId: user?.cartId,
     };
     return res.json(response);

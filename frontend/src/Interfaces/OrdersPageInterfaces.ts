@@ -30,3 +30,28 @@ export interface IOrderProduct {
   quantity: number;
   product: IProduct;
 }
+
+export const initialOrder: IOrder = {
+  id: "",
+  userId: "",
+  customerId: "",
+  paymentId: "",
+  subtotal: "",
+  total: "",
+  delivery_status: "",
+  payment_status: "",
+  createdAt: "",
+  updatedAt: "",
+  orderProducts: [],
+  shipping: {
+    id: "",
+    name: "",
+    email: "",
+    city: "",
+    address1: "",
+    address2: undefined,
+    postalCode: "",
+    phoneNumber: "",
+    country: "",
+  },
+};

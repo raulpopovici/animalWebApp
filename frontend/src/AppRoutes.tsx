@@ -23,6 +23,8 @@ const ViewProduct = lazy(() => import("./Pages/Food/ViewProduct/ViewProduct"));
 const Cart = lazy(() => import("./Pages/Cart/Cart"));
 const CheckoutSuccess = lazy(() => import("./Pages/Checkout/CheckoutSuccess"));
 const Profile = lazy(() => import("./Pages/Profile/Profile"));
+const Adopt = lazy(() => import("./Pages/Adopt/Adopt"));
+const FindMate = lazy(() => import("./Pages/FindMate/FindMate"));
 
 export const AppRoutes = () => {
   const location = useLocation();
@@ -117,6 +119,8 @@ export const AppRoutes = () => {
         />
 
         <Route path="/profile" element={<Profile />} />
+        <Route path="/adopt" element={<Adopt />} />
+        <Route path="/find-mate" element={<FindMate />} />
       </Routes>
     </Suspense>
   );
