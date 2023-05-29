@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import styles from "./PayButton.module.css";
 import { ICartProduct } from "../../Interfaces/CartPageInterfaces";
-import { useAuthState } from "../../context/AuthContext";
+import { useAuthState } from "../../Context/AuthContext";
 import { Tooltip } from "@mui/joy";
 
 export const PayButton = ({ data }: { data: ICartProduct[] }) => {

@@ -8,6 +8,7 @@ import { Pagination } from "@mui/material";
 import { Animal } from "../../Interfaces/AnimalPageInterface";
 import ViewAnimalModal from "../../Components/Animals/ViewAnimalModal/ViewAnimalModal";
 import { getNumberOfPages } from "./AdoptController";
+import sleepyDogg from "../../Assets/sleepyDogg.jpeg";
 
 export interface adoptFilters {
   wantDog: boolean;
@@ -34,7 +35,7 @@ const Adopt = () => {
   });
 
   const { data: animals, refetch } = useQuery(["animals"], async () => {
-    const response = await axios.get("/getAdoptionAnimals", {
+    const response = await axios.get("/getAdoptionOrFindMateAnimals", {
       params: {
         wantDog: topFilters.wantDog,
         wantCat: topFilters.wantCat,
@@ -42,6 +43,7 @@ const Adopt = () => {
         wantRodent: topFilters.wantRodent,
         wantFish: topFilters.wantFish,
         pageNumber: topFilters.page,
+        utilityType: "adoption",
       },
     });
     return response.data;
@@ -50,7 +52,7 @@ const Adopt = () => {
   const { data: animalsCount, refetch: refetchCount } = useQuery(
     ["animalsCount"],
     async () => {
-      const response = await axios.get("/getAdoptionAnimalsCount", {
+      const response = await axios.get("/getAdoptionOrFindMateAnimalsCount", {
         params: {
           wantDog: topFilters.wantDog,
           wantCat: topFilters.wantCat,
@@ -175,7 +177,31 @@ const Adopt = () => {
           <></>
         )}
         {animalsCount === 0 ? (
-          <div>No available animals that match that criteria</div>
+          <div
+            style={{
+              display: "flex",
+              alignSelf: "center",
+              justifySelf: "center",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <img
+              src={sleepyDogg}
+              style={{ height: "300px", width: "300px", marginTop: "-100px" }}
+            ></img>
+            <div
+              style={{
+                color: "#000",
+                fontFamily: "Open Sans, sans-serif",
+                fontSize: "20px",
+                marginTop: "-80px",
+              }}
+            >
+              No animals match this search criteria!
+            </div>
+          </div>
         ) : (
           <></>
         )}

@@ -8,23 +8,17 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import styles from "./Cart.module.css";
-import Paper from "@mui/material/Paper";
-import purina from "../../Assets/purina.png";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import sleepyDogg from "../../Assets/sleepyDogg.jpeg";
 
 import ClearIcon from "@mui/icons-material/Clear";
-import { width } from "@mui/system";
-import { TableSortAndSelection } from "../../Components/CartTable/CartTable";
 import Box from "@mui/joy/Box";
-import { Button, Sheet, Tooltip } from "@mui/joy";
+import { Sheet, Tooltip } from "@mui/joy";
 import { ICartProduct } from "../../Interfaces/CartPageInterfaces";
-import { IProduct } from "../../Interfaces/FoodPageInterfaces";
 import { PayButton } from "../../Components/PayButton/PayButton";
-import { useAuthState } from "../../context/AuthContext";
+import { useAuthState } from "../../Context/AuthContext";
 import { handleAddToCart } from "./CartController";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 function createData(
   name: string,

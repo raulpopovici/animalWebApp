@@ -7,7 +7,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import styles from "./Nav.module.css";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuthState } from "../../context/AuthContext";
+import { useAuthState } from "../../Context/AuthContext";
 import { ProfileMenu } from "../ProfileMenu/ProfileMenu";
 import { Menu, MenuItem } from "@mui/joy";
 

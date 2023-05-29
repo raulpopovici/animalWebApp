@@ -12,7 +12,7 @@ import purina from "../../Assets/purina.png";
 import { IProduct } from "../../Interfaces/FoodPageInterfaces";
 import styles from "./Card.module.css";
 import { handleAddToCart } from "../../Pages/Cart/CartController";
-import { useAuthState } from "../../context/AuthContext";
+import { useAuthState } from "../../Context/AuthContext";
 
 export const CardComponent = ({
   product,

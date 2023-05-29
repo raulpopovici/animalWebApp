@@ -12,7 +12,7 @@ import { IOrder, initialOrder } from "../../Interfaces/OrdersPageInterfaces";
 import Order from "../../Components/Orders/Order/Order";
 import OrderDetails from "../../Components/Orders/OrderDetails/OrderDetails";
 import ProfileDetails from "../../Components/ProfileDetails/ProfileDetails";
-import { useAuthState } from "../../context/AuthContext";
+import { useAuthState } from "../../Context/AuthContext";
 import Animals from "../../Components/Animals/Animals";
 
 export const Profile = () => {

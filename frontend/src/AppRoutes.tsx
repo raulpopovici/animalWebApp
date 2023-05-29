@@ -12,8 +12,9 @@ import {
   ICartProduct,
   initialCartProduct,
 } from "./Interfaces/CartPageInterfaces";
-import { useAuthState } from "./context/AuthContext";
+import { useAuthState } from "./Context/AuthContext";
 import axios from "axios";
+import Footer from "./Components/Footer/Footer";
 
 const Login = lazy(() => import("./Pages/Login/Login"));
 const Register = lazy(() => import("./Pages/Register/Register"));
@@ -122,6 +123,12 @@ export const AppRoutes = () => {
         <Route path="/adopt" element={<Adopt />} />
         <Route path="/find-mate" element={<FindMate />} />
       </Routes>
+
+      {location.pathname === "/register" || location.pathname === "/login" ? (
+        <></>
+      ) : (
+        <Footer />
+      )}
     </Suspense>
   );
 };

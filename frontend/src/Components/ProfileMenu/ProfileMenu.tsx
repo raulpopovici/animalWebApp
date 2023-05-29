@@ -8,7 +8,7 @@ import {
   MenuItem,
 } from "@mui/material";
 import React from "react";
-import { useAuthDispatch } from "../../context/AuthContext";
+import { useAuthDispatch } from "../../Context/AuthContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -90,12 +90,6 @@ export const ProfileMenu = ({
         <Avatar /> Animals
       </MenuItem>
       <Divider />
-      <MenuItem onClick={handleClose}>
-        <ListItemIcon>
-          <Settings fontSize="small" />
-        </ListItemIcon>
-        Settings
-      </MenuItem>
       <MenuItem onClick={handleLogout}>
         <ListItemIcon>
           <Logout fontSize="small" />

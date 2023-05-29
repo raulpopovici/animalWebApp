@@ -3,7 +3,7 @@ import styles from "./CheckoutSuccess.module.css";
 import { Sheet } from "@mui/joy";
 import { OrderSuccessCard } from "../../Components/OrderSuccessCard/OrderSuccesCard";
 import { useEffect, useState } from "react";
-import { useAuthState } from "../../context/AuthContext";
+import { useAuthState } from "../../Context/AuthContext";
 import axios from "axios";
 
 const CheckoutSuccess = ({

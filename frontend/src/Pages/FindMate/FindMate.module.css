@@ -1,0 +1,14 @@
+.pageContainer {
+  display: flex;
+  height: 100vh;
+  font-family: "Open Sans", sans-serif;
+}
+
+.middlePage {
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

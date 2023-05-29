@@ -12,7 +12,7 @@ import Slide, { SlideProps } from "@mui/material/Slide";
 import MuiAlert, { AlertProps } from "@mui/material/Alert";
 import { State } from "../Food";
 import SnackbarV2 from "../../../Components/Snackbar/Snackbar";
-import { useAuthState } from "../../../context/AuthContext";
+import { useAuthState } from "../../../Context/AuthContext";
 import { handleAddToCart } from "../../Cart/CartController";
 
 const ViewProduct = ({ toggleCartState }: { toggleCartState: () => void }) => {

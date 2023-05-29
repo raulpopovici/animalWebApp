@@ -30,7 +30,7 @@ export const ViewAnimalModal = ({
         sx={{ height: "700px", width: "1000px" }}
       >
         <ModalClose />
-        <div style={{ overflowY: "scroll" }}>
+        <div style={{ overflowY: "auto" }}>
           <div className={styles.animalNameStyle}>{animal.name}</div>
           <div style={{ display: "flex", justifyContent: "center" }}>
             <img

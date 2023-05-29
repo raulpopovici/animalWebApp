@@ -10,7 +10,7 @@ import { useNavigate } from "react-router";
 import { useReducer, useState } from "react";
 import { initialUserLoginData, userLoginReducer } from "./LoginReducer";
 import axios, { AxiosResponse } from "axios";
-import { useAuthDispatch } from "../../context/AuthContext";
+import { useAuthDispatch } from "../../Context/AuthContext";
 import CircularProgress from "@mui/joy/CircularProgress";
 
 const Login = () => {

@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import { useAuthDispatch, useAuthState } from "../../context/AuthContext";
+import { useAuthDispatch, useAuthState } from "../../Context/AuthContext";
 import styles from "./ProfileDetails.module.css";
 import {
   initialUserLoginData,

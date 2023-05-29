@@ -6,8 +6,8 @@ import {
   createAnimal,
   deleteAnimal,
   getAnimalsByUser,
-  getAdoptionAnimals,
-  getAdoptionAnimalsCount,
+  getAdoptionOrFindMateAnimals,
+  getAdoptionOrFindMateAnimalsCount,
 } from "../services/AnimalService";
 
 router.post("/api/createAnimal", createAnimal);
@@ -16,8 +16,11 @@ router.get("/api/getAnimalsByUserId", getAnimalsByUser);
 
 router.delete("/api/deleteAnimal", deleteAnimal);
 
-router.get("/api/getAdoptionAnimals", getAdoptionAnimals);
+router.get("/api/getAdoptionOrFindMateAnimals", getAdoptionOrFindMateAnimals);
 
-router.get("/api/getAdoptionAnimalsCount", getAdoptionAnimalsCount);
+router.get(
+  "/api/getAdoptionOrFindMateAnimalsCount",
+  getAdoptionOrFindMateAnimalsCount
+);
 
 module.exports = router;

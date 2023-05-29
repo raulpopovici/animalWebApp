@@ -71,18 +71,37 @@ export const getAnimalsByUser = async (req: Request, res: Response) => {
 
   if (!token) return res.status(401).json({ error: "Not authenticated" });
 
+  const utilityType = req.query.utilityType;
+  let forAdoption: boolean | undefined;
+
+  if (utilityType === "adoption") {
+    forAdoption = true;
+  } else if (utilityType === "findMate") {
+    forAdoption = false;
+  }
+
   try {
     const { email }: any = jwt.verify(token, process.env.JWT_SECRET);
     const user = await AppDataSource.getRepository(User).findOne({
       where: { email },
     });
 
-    const animals = await AppDataSource.getRepository(Animal).find({
-      relations: {
-        user: true,
-      },
-      where: { user: { id: user.id } },
-    });
+    let animals;
+    if (utilityType && (forAdoption === true || forAdoption === false)) {
+      animals = await AppDataSource.getRepository(Animal).find({
+        relations: {
+          user: true,
+        },
+        where: { user: { id: user.id }, forAdoption },
+      });
+    } else {
+      animals = await AppDataSource.getRepository(Animal).find({
+        relations: {
+          user: true,
+        },
+        where: { user: { id: user.id } },
+      });
+    }
 
     return res.status(200).json(animals);
   } catch {
@@ -115,14 +134,32 @@ export const deleteAnimal = async (req: Request, res: Response) => {
   }
 };
 
-export const getAdoptionAnimals = async (req: Request, res: Response) => {
-  const { wantDog, wantCat, wantBird, wantFish, wantRodent, pageNumber } =
-    req.query;
+export const getAdoptionOrFindMateAnimals = async (
+  req: Request,
+  res: Response
+) => {
+  const {
+    wantDog,
+    wantCat,
+    wantBird,
+    wantFish,
+    wantRodent,
+    pageNumber,
+    utilityType,
+  } = req.query;
   const dog = wantDog === "true";
   const cat = wantCat === "true";
   const bird = wantBird === "true";
   const fish = wantFish === "true";
   const rodent = wantRodent === "true";
+
+  let forAdoption: boolean | undefined;
+
+  if (utilityType === "adoption") {
+    forAdoption = true;
+  } else if (utilityType === "findMate") {
+    forAdoption = false;
+  }
 
   try {
     const queryBuilder = await AppDataSource.getRepository(Animal)
@@ -153,6 +190,12 @@ export const getAdoptionAnimals = async (req: Request, res: Response) => {
       }
     );
 
+    if (utilityType && (forAdoption === true || forAdoption === false)) {
+      queryBuilder.andWhere("animal.forAdoption = :forAdoption", {
+        forAdoption,
+      });
+    }
+
     let page: number = pageNumber;
     if (pageNumber) {
       if (pageNumber == 0) {
@@ -174,7 +217,10 @@ export const getAdoptionAnimals = async (req: Request, res: Response) => {
   }
 };
 
-export const getAdoptionAnimalsCount = async (req: Request, res: Response) => {
+export const getAdoptionOrFindMateAnimalsCount = async (
+  req: Request,
+  res: Response
+) => {
   const { wantDog, wantCat, wantBird, wantFish, wantRodent } = req.query;
 
   console.log(wantDog);
@@ -214,10 +260,32 @@ export const getAdoptionAnimalsCount = async (req: Request, res: Response) => {
   }
 };
 
+export const generatePotentialMathes = async (req: Request, res: Response) => {
+  const token = req.cookies.token;
+
+  const animalId = req.query.animalId;
+
+  if (!token) return res.status(401).json({ error: "Not authenticated" });
+
+  try {
+    const { email }: any = jwt.verify(token, process.env.JWT_SECRET);
+    const user = await AppDataSource.getRepository(User).findOne({
+      where: { email },
+    });
+
+    const animal = await AppDataSource.getRepository(Animal).findOne({
+      where: { id: animalId },
+    });
+  } catch (err) {
+    console.error("Error while trying to get the adoption animals!!");
+    return res.status(500).json(err);
+  }
+};
+
 module.exports = {
   createAnimal,
   getAnimalsByUser,
   deleteAnimal,
-  getAdoptionAnimals,
-  getAdoptionAnimalsCount,
+  getAdoptionOrFindMateAnimals,
+  getAdoptionOrFindMateAnimalsCount,
 };
