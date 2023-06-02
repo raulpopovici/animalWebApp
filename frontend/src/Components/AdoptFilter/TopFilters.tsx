@@ -1,10 +1,10 @@
 import React from "react";
-import ToggleButtonV2 from "../../../Components/ToggleButton/ToggleButton";
+import ToggleButtonV2 from "../ToggleButton/ToggleButton";
 import {
   checkIfTopFilterSelected,
   topFiltersChangeState,
-} from "../AdoptController";
-import { adoptFilters } from "../Adopt";
+} from "../../Pages/Adopt/AdoptController";
+import { adoptFilters } from "../../Pages/Adopt/Adopt";
 
 const TopFilters = ({
   topFilters,

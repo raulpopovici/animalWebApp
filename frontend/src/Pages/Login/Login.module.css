@@ -8,7 +8,7 @@
 
 .leftContainer {
   display: flex;
-  background-color: #f2e9e4;
+  background-color: #1e3647;
   flex-direction: column;
   height: 100vh;
   width: 500px;
@@ -31,7 +31,7 @@
   justify-content: space-evenly;
   flex-direction: column;
   background-color: #fff;
-  min-height: 500px;
+  min-height: 350px;
   width: 500px;
 }
 
@@ -41,12 +41,12 @@
   width: 200px;
   align-items: center;
   justify-content: space-evenly;
-  border: 1px solid #f2e9e4;
+  border: 1px solid #1e3647;
   border-radius: 10px;
-  background-color: #8a0d56;
+  background-color: #1e3647;
   color: #fff;
   font-size: 19px;
-  font-family: "Oswald", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 500;
 }
 
@@ -60,11 +60,11 @@
   justify-self: center;
   border: 1px solid #f2e9e4;
   border-radius: 10px;
-  background-color: #8a0d56;
+  background-color: #1e3647;
   margin-bottom: 10%;
   color: #fff;
   font-size: 19px;
-  font-family: "Oswald", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 500;
 }
 
@@ -76,8 +76,14 @@
 
 .loginButton:hover {
   cursor: pointer;
-  background-color: #fff;
-  color: #8a0d56;
+  background-color: #4b5e6c;
+  border: 1px solid #4b5e6c;
+  color: #fff;
+}
+
+.loginButton:active {
+  background-color: #364a59;
+  border: 1px solid #364a59;
 }
 
 .passwordContainer {
@@ -106,4 +112,11 @@
   .leftContainer {
     display: none;
   }
+}
+
+.errorText {
+  color: red;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
 }

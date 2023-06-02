@@ -1,6 +1,6 @@
 import styles from "./ViewProduct.module.css";
 import { useLocation } from "react-router-dom";
-import { IProduct } from "../../../Interfaces/FoodPageInterfaces";
+import { IProduct } from "../../Interfaces/FoodPageInterfaces";
 import { Button, SnackbarOrigin } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AddIcon from "@mui/icons-material/Add";
@@ -10,10 +10,10 @@ import { useState } from "react";
 import React from "react";
 import Slide, { SlideProps } from "@mui/material/Slide";
 import MuiAlert, { AlertProps } from "@mui/material/Alert";
-import { State } from "../Food";
-import SnackbarV2 from "../../../Components/Snackbar/Snackbar";
-import { useAuthState } from "../../../Context/AuthContext";
-import { handleAddToCart } from "../../Cart/CartController";
+import { State } from "../../Pages/Food/Food";
+import SnackbarV2 from "../Snackbar/Snackbar";
+import { useAuthState } from "../../Context/AuthContext";
+import { handleAddToCart } from "../../Pages/Cart/CartController";
 
 const ViewProduct = ({ toggleCartState }: { toggleCartState: () => void }) => {
   const location = useLocation();

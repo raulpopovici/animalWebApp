@@ -181,15 +181,47 @@ const Register = () => {
         </div>
       </section>
       <section className={styles.rightContainer}>
-        <div style={{ display: "grid", flexGrow: 1, alignSelf: "center" }}>
+        <div
+          style={{
+            display: "flex",
+            flexGrow: 1,
+            alignSelf: "center",
+            flexDirection: "column",
+
+            alignItems: "center",
+          }}
+        >
           <div
             style={{
               fontFamily: "Covered By Your Grace, cursive",
               fontSize: "50px",
-              color: "#8a0d56",
+              color: "#fff",
+              paddingTop: "30px",
             }}
           >
-            Welcome!
+            Petopia
+          </div>
+
+          <div
+            style={{
+              fontFamily: "Open sans, sans-serif",
+              fontSize: "30px",
+              color: "#fff",
+              paddingTop: "50px",
+            }}
+          >
+            Connecting Hearts and Paws
+          </div>
+
+          <div
+            style={{
+              fontFamily: "Open sans, sans-serif",
+              fontSize: "20px",
+              color: "#fff",
+              paddingTop: "30px",
+            }}
+          >
+            Nourish. Adopt. Mate
           </div>
         </div>
 
@@ -199,9 +231,10 @@ const Register = () => {
               display: "flex",
               alignSelf: "center",
               justifySelf: "center",
-              fontFamily: "Covered By Your Grace, cursive",
+              fontFamily: "Open sans, sans-serif",
               fontSize: "20px",
-              color: "#8a0d56",
+              paddingBottom: "30px",
+              color: "#fff",
             }}
           >
             Already have an account? Sign in now!

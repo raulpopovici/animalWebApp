@@ -145,7 +145,22 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       .get("/me")
       .then((res) => {
         if (res.data) {
-          dispatch({ type: "LOGIN", payload: res.data });
+          console.log("sadasd" + res.data.isAdmin);
+          dispatch({
+            type: "LOGIN",
+            payload: {
+              id: res.data.id,
+              email: res.data.email,
+              firstName: res.data.firstName,
+              lastName: res.data.lastName,
+              phoneNumber: res.data.phoneNumber,
+              address: res.data.address,
+              city: res.data.city,
+              country: res.data.country,
+              cartId: res.data.cartId,
+              isAdmin: res.data.isAdmin,
+            },
+          });
         }
       })
       .catch((err) => {

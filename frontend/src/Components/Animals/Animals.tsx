@@ -12,6 +12,7 @@ import {
   addAnimalModalReducer,
   initialAddAnimalModalData,
 } from "./AnimalsReducer";
+import EmptyPage from "../EmptyPage/EmptyPage";
 export const Animals = () => {
   const [open, setOpen] = useState<boolean>(false);
 
@@ -101,6 +102,11 @@ export const Animals = () => {
     <div className={styles.containerAnimals}>
       <div className={styles.containerOrderDetailsLeft}>
         <h1 className={styles.animalsPageHeader}>Your animals</h1>
+        {animals.length === 0 ? (
+          <EmptyPage text="You have no animals!" />
+        ) : (
+          <></>
+        )}
         {animals.map((animal: Animal) => (
           <ViewAnimal key={animal.id} animal={animal} onDelete={deleteAnimal} />
         ))}

@@ -7,6 +7,7 @@ import {
   convertAnimalTypeToString,
   convertSexToString,
 } from "../utils/AnimalsHelperFunctions";
+import { Not } from "typeorm";
 
 export const createAnimal = async (req: Request, res: Response) => {
   const token = req.cookies.token;
@@ -155,6 +156,19 @@ export const getAdoptionOrFindMateAnimals = async (
 
   let forAdoption: boolean | undefined;
 
+  const token = req.cookies.token;
+
+  let userId;
+  if (!token) {
+    userId = "";
+  } else {
+    const { email }: any = jwt.verify(token, process.env.JWT_SECRET);
+    const user = await AppDataSource.getRepository(User).findOne({
+      where: { email },
+    });
+    userId = user.id;
+  }
+
   if (utilityType === "adoption") {
     forAdoption = true;
   } else if (utilityType === "findMate") {
@@ -196,6 +210,10 @@ export const getAdoptionOrFindMateAnimals = async (
       });
     }
 
+    if (userId.length > 0) {
+      queryBuilder.andWhere("animal.userId != :userId", { userId: userId });
+    }
+
     let page: number = pageNumber;
     if (pageNumber) {
       if (pageNumber == 0) {
@@ -221,15 +239,21 @@ export const getAdoptionOrFindMateAnimalsCount = async (
   req: Request,
   res: Response
 ) => {
-  const { wantDog, wantCat, wantBird, wantFish, wantRodent } = req.query;
+  const { wantDog, wantCat, wantBird, wantFish, wantRodent, utilityType } =
+    req.query;
 
-  console.log(wantDog);
-  console.log(wantCat);
+  let forAdoption: boolean | undefined;
   const dog = wantDog === "true";
   const cat = wantCat === "true";
   const bird = wantBird === "true";
   const fish = wantFish === "true";
   const rodent = wantRodent === "true";
+
+  if (utilityType === "adoption") {
+    forAdoption = true;
+  } else if (utilityType === "findMate") {
+    forAdoption = false;
+  }
 
   try {
     const queryBuilder = await AppDataSource.getRepository(
@@ -250,6 +274,12 @@ export const getAdoptionOrFindMateAnimalsCount = async (
         ].filter(Boolean),
       }
     );
+
+    if (utilityType && (forAdoption === true || forAdoption === false)) {
+      queryBuilder.andWhere("animal.forAdoption = :forAdoption", {
+        forAdoption,
+      });
+    }
 
     const animals = await queryBuilder.getMany();
 
@@ -276,6 +306,22 @@ export const generatePotentialMathes = async (req: Request, res: Response) => {
     const animal = await AppDataSource.getRepository(Animal).findOne({
       where: { id: animalId },
     });
+
+    const possibleMatches = await await AppDataSource.getRepository(Animal)
+      .createQueryBuilder("animal")
+      .leftJoin("animal.user", "user")
+      .select(["animal", "user"])
+      .where("animal.animalType = :animalType", {
+        animalType: animal.animalType,
+      })
+      .andWhere("animal.breed = :breed", { breed: animal.breed })
+      .andWhere("animal.forAdoption = :forAdoption", { forAdoption: false })
+      .andWhere("animal.sex != :sex", { sex: animal.sex })
+      .andWhere("animal.id != :id", { id: animal.id })
+      .andWhere("user.id != :userId", { userId: user.id })
+      .getMany();
+
+    res.status(200).json(possibleMatches);
   } catch (err) {
     console.error("Error while trying to get the adoption animals!!");
     return res.status(500).json(err);
@@ -288,4 +334,5 @@ module.exports = {
   deleteAnimal,
   getAdoptionOrFindMateAnimals,
   getAdoptionOrFindMateAnimalsCount,
+  generatePotentialMathes,
 };

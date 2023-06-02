@@ -5,7 +5,7 @@ import CardOverflow from "@mui/joy/CardOverflow";
 import Divider from "@mui/joy/Divider";
 import Typography from "@mui/joy/Typography";
 import { Animal } from "../../../Interfaces/AnimalPageInterface";
-import styles from "../Adopt.module.css";
+import styles from "../../../Pages/Adopt/Adopt.module.css";
 
 export const AnimalCard = ({ animal }: { animal: Animal }) => {
   return (

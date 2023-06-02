@@ -1,13 +1,13 @@
-import ToggleButtonV2 from "../../../Components/ToggleButton/ToggleButton";
+import ToggleButtonV2 from "../ToggleButton/ToggleButton";
 import {
   checkIfTopFilterSelected,
   topFiltersChangeState,
-} from "../FoodController";
+} from "../../Pages/Food/FoodController";
 import {
   FoodStateType,
   ILeftFiltersData,
   ITopFiltersData,
-} from "../FoodReducer";
+} from "../../Pages/Food/FoodReducer";
 
 const TopFilters = ({
   topFilters,

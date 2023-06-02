@@ -1,5 +1,6 @@
 import { query, Request, Response } from "express";
 import { AppDataSource } from "../app-data-source";
+import jwt = require("jsonwebtoken");
 
 import Product from "../entities/Product";
 import {
@@ -8,6 +9,8 @@ import {
   convertBrandToString,
   getPriceRange,
 } from "../utils/ProductsHelperFunctions";
+import User from "../entities/User";
+import { OrderProduct } from "../entities/OrderProduct";
 
 export const getProducts = async (req: Request, res: Response) => {
   const {
@@ -250,8 +253,45 @@ export const createProduct = async (req: Request, res: Response) => {
   }
 };
 
+export const getAllProductsForAdmin = async (req: Request, res: Response) => {
+  const token = req.cookies.token;
+
+  if (!token) return res.status(401).json({ error: "Not authenticated" });
+
+  const { email }: any = jwt.verify(token, process.env.JWT_SECRET);
+  const user = await AppDataSource.getRepository(User).findOne({
+    where: { email },
+  });
+
+  if (user.isAdmin === false)
+    return res.status(401).json({ error: "Not an admin, not permited" });
+
+  const pageNumber = req.query.pageNumber > 0 ? req.query.pageNumber : 1;
+
+  try {
+    const orderProductRepository = AppDataSource.getRepository(OrderProduct);
+    const queryBuilder =
+      orderProductRepository.createQueryBuilder("orderProduct");
+    queryBuilder
+      .select("orderProduct.product", "productId")
+      .addSelect("SUM(orderProduct.quantity)", "totalQuantity")
+      .groupBy("orderProduct.product");
+
+    const result = await queryBuilder.getRawMany();
+    const productQuantities = result.map((row) => ({
+      productId: row.productId,
+      totalQuantity: row.totalQuantity,
+    }));
+
+    return res.json(productQuantities);
+  } catch {
+    console.log("error updating user info");
+  }
+};
+
 module.exports = {
   getProducts,
   getNrOfProducts,
   createProduct,
+  getAllProductsForAdmin,
 };

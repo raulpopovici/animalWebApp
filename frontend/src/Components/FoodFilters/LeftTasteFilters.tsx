@@ -1,6 +1,6 @@
-import CheckBoxV2 from "../../../Components/CheckBox/CheckBox";
-import { checkIfLeftFilterSelected } from "../FoodController";
-import { FoodStateType, ILeftFiltersData } from "../FoodReducer";
+import CheckBoxV2 from "../CheckBox/CheckBox";
+import { checkIfLeftFilterSelected } from "../../Pages/Food/FoodController";
+import { FoodStateType, ILeftFiltersData } from "../../Pages/Food/FoodReducer";
 
 const LeftTasteFilters = ({
   leftFilters,

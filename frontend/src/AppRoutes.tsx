@@ -20,12 +20,13 @@ const Login = lazy(() => import("./Pages/Login/Login"));
 const Register = lazy(() => import("./Pages/Register/Register"));
 const Home = lazy(() => import("./Pages/Home/Home"));
 const Food = lazy(() => import("./Pages/Food/Food"));
-const ViewProduct = lazy(() => import("./Pages/Food/ViewProduct/ViewProduct"));
+const ViewProduct = lazy(() => import("./Components/ViewProduct/ViewProduct"));
 const Cart = lazy(() => import("./Pages/Cart/Cart"));
 const CheckoutSuccess = lazy(() => import("./Pages/Checkout/CheckoutSuccess"));
 const Profile = lazy(() => import("./Pages/Profile/Profile"));
 const Adopt = lazy(() => import("./Pages/Adopt/Adopt"));
 const FindMate = lazy(() => import("./Pages/FindMate/FindMate"));
+const Admin = lazy(() => import("./Pages/Admin/Admin"));
 
 export const AppRoutes = () => {
   const location = useLocation();
@@ -122,6 +123,8 @@ export const AppRoutes = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/adopt" element={<Adopt />} />
         <Route path="/find-mate" element={<FindMate />} />
+
+        <Route path="/admin" element={<Admin />} />
       </Routes>
 
       {location.pathname === "/register" || location.pathname === "/login" ? (

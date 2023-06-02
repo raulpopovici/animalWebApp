@@ -1,7 +1,7 @@
 import { useEffect, useReducer, useState } from "react";
-import TopFilters from "./Filter/TopFilters";
+import TopFilters from "../../Components/AdoptFilter/TopFilters";
 import styles from "./Adopt.module.css";
-import { AnimalCard } from "./AnimalCard/AnimalCard";
+import { AnimalCard } from "../../Components/Animals/AnimalCard/AnimalCard";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { Pagination } from "@mui/material";
@@ -9,6 +9,7 @@ import { Animal } from "../../Interfaces/AnimalPageInterface";
 import ViewAnimalModal from "../../Components/Animals/ViewAnimalModal/ViewAnimalModal";
 import { getNumberOfPages } from "./AdoptController";
 import sleepyDogg from "../../Assets/sleepyDogg.jpeg";
+import EmptyPage from "../../Components/EmptyPage/EmptyPage";
 
 export interface adoptFilters {
   wantDog: boolean;
@@ -60,6 +61,7 @@ const Adopt = () => {
           wantRodent: topFilters.wantRodent,
           wantFish: topFilters.wantFish,
           pageNumber: 1,
+          utilityType: "adoption",
         },
       });
       return response.data;
@@ -177,31 +179,7 @@ const Adopt = () => {
           <></>
         )}
         {animalsCount === 0 ? (
-          <div
-            style={{
-              display: "flex",
-              alignSelf: "center",
-              justifySelf: "center",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <img
-              src={sleepyDogg}
-              style={{ height: "300px", width: "300px", marginTop: "-100px" }}
-            ></img>
-            <div
-              style={{
-                color: "#000",
-                fontFamily: "Open Sans, sans-serif",
-                fontSize: "20px",
-                marginTop: "-80px",
-              }}
-            >
-              No animals match this search criteria!
-            </div>
-          </div>
+          <EmptyPage text="No animals match this criteria" />
         ) : (
           <></>
         )}

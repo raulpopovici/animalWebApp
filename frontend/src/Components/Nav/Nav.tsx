@@ -5,7 +5,7 @@ import Badge from "@mui/joy/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 import styles from "./Nav.module.css";
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthState } from "../../Context/AuthContext";
 import { ProfileMenu } from "../ProfileMenu/ProfileMenu";
@@ -14,7 +14,7 @@ import { Menu, MenuItem } from "@mui/joy";
 const Nav = ({ cartSize }: { cartSize: number }) => {
   const location = window.location.pathname;
   const navigate = useNavigate();
-  const user = useAuthState();
+  let user = useAuthState();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
   const open = Boolean(anchorEl);
@@ -51,7 +51,18 @@ const Nav = ({ cartSize }: { cartSize: number }) => {
   return (
     <AppBar position="sticky" elevation={0} sx={{ backgroundColor: "#1e3647" }}>
       <Toolbar sx={{ backgroundColor: "#1e3647" }}>
-        <div className={styles.leftContainer}>LOGO</div>
+        <div className={styles.leftContainer}>
+          <div
+            style={{
+              fontFamily: "Covered By Your Grace, cursive",
+              fontSize: "40px",
+              color: "#fff",
+            }}
+          >
+            {" "}
+            Petopia
+          </div>
+        </div>
         <div className={styles.centerContainer}>
           <div className={homeCSSClassName} onClick={() => navigate("/")}>
             Home
@@ -65,6 +76,16 @@ const Nav = ({ cartSize }: { cartSize: number }) => {
           >
             Animals
           </div>
+          {user.isAuth && user.user.isAdmin ? (
+            <div
+              className={foodCSSClassName}
+              onClick={() => navigate("/admin")}
+            >
+              Admin
+            </div>
+          ) : (
+            <></>
+          )}
           <Menu
             id="basic-menu"
             anchorEl={anchorEl}

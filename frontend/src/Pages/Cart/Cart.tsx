@@ -20,6 +20,7 @@ import { PayButton } from "../../Components/PayButton/PayButton";
 import { useAuthState } from "../../Context/AuthContext";
 import { handleAddToCart } from "./CartController";
 import { useNavigate } from "react-router-dom";
+import EmptyPage from "../../Components/EmptyPage/EmptyPage";
 function createData(
   name: string,
   calories: number,
@@ -182,31 +183,7 @@ const Cart = ({
 
           {/* <TableSortAndSelection /> */}
           {data.length === 0 ? (
-            <div
-              style={{
-                display: "flex",
-                alignSelf: "center",
-                justifySelf: "center",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <img
-                src={sleepyDogg}
-                style={{ height: "300px", width: "300px", marginTop: "-100px" }}
-              ></img>
-              <div
-                style={{
-                  color: "#000",
-                  fontFamily: "Open Sans, sans-serif",
-                  fontSize: "20px",
-                  marginTop: "-80px",
-                }}
-              >
-                Your cart is currently empty!
-              </div>
-            </div>
+            <EmptyPage text="Your cart is currently empty!" />
           ) : (
             <></>
           )}

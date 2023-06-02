@@ -8,7 +8,11 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import { redirectToRegister } from "./LoginController";
 import { useNavigate } from "react-router";
 import { useReducer, useState } from "react";
-import { initialUserLoginData, userLoginReducer } from "./LoginReducer";
+import {
+  UserLoginState,
+  initialUserLoginData,
+  userLoginReducer,
+} from "./LoginReducer";
 import axios, { AxiosResponse } from "axios";
 import { useAuthDispatch } from "../../Context/AuthContext";
 import CircularProgress from "@mui/joy/CircularProgress";
@@ -38,6 +42,7 @@ const Login = () => {
       city: string;
       country: string;
       cartId: string;
+      isAdmin: boolean;
       // ... other user properties
     };
   }
@@ -65,7 +70,7 @@ const Login = () => {
               city: response.data.user.city,
               country: response.data.user.country,
               cartId: response.data.user.cartId,
-              isAdmin: false,
+              isAdmin: response.data.user.isAdmin,
             },
           });
         }
@@ -80,13 +85,11 @@ const Login = () => {
       return response;
     } catch (error: any) {
       if (error.response.data !== undefined) {
-        // The request was made and the server responded with a status code
-        // that falls out of the range of 2xx
-        // dispatchUserReducerData({
-        //   type: UserRegisterState.registerErrors,
-        //   payload: error.response.data,
-        // });
-        // console.log(userReducerData.registerErrors);
+        dispatchUserReducerData({
+          type: UserLoginState.loginErrors,
+          payload: error.response.data,
+        });
+        console.log(userReducerData.loginErrors);
       } else if (error.request) {
         // The request was made but no response was received
         console.log(error.request);
@@ -101,27 +104,59 @@ const Login = () => {
   return (
     <div className={styles.pageContainer}>
       <section className={styles.leftContainer}>
-        <div style={{ display: "grid", flexGrow: 1, alignSelf: "center" }}>
+        <div
+          style={{
+            display: "flex",
+            flexGrow: 1,
+            alignSelf: "center",
+            flexDirection: "column",
+
+            alignItems: "center",
+          }}
+        >
           <div
             style={{
               fontFamily: "Covered By Your Grace, cursive",
               fontSize: "50px",
-              color: "#8a0d56",
+              color: "#fff",
+              paddingTop: "30px",
             }}
           >
-            Welcome Back!
+            Petopia
+          </div>
+
+          <div
+            style={{
+              fontFamily: "Open sans, sans-serif",
+              fontSize: "30px",
+              color: "#fff",
+              paddingTop: "50px",
+            }}
+          >
+            Connecting Hearts and Paws
+          </div>
+
+          <div
+            style={{
+              fontFamily: "Open sans, sans-serif",
+              fontSize: "20px",
+              color: "#fff",
+              paddingTop: "30px",
+            }}
+          >
+            Nourish. Adopt. Mate
           </div>
         </div>
-
         <div style={{ display: "grid" }}>
           <div
             style={{
               display: "flex",
               alignSelf: "center",
               justifySelf: "center",
-              fontFamily: "Covered By Your Grace, cursive",
+              fontFamily: "Open sans, sans-serif",
               fontSize: "20px",
-              color: "#8a0d56",
+              paddingBottom: "30px",
+              color: "#fff",
             }}
           >
             Don't have an account? Create one now!
@@ -143,6 +178,14 @@ const Login = () => {
               screenType="login"
               dispatchUserReducerData={dispatchUserReducerData}
             />
+            {userReducerData.loginErrors.email !== "" &&
+            userReducerData.loginErrors.email !== undefined ? (
+              <div className={styles.errorText}>
+                {userReducerData.loginErrors.email}
+              </div>
+            ) : (
+              <></>
+            )}
           </div>
           <div>
             <div className={styles.text}>Password</div>
@@ -151,14 +194,18 @@ const Login = () => {
               screenType="login"
               dispatchUserReducerData={dispatchUserReducerData}
             />
+            {userReducerData.loginErrors.password !== "" &&
+            userReducerData.loginErrors.password !== undefined ? (
+              <div className={styles.errorText}>
+                {userReducerData.loginErrors.password}
+              </div>
+            ) : (
+              <></>
+            )}
           </div>
           <button className={styles.loginButton} onClick={() => handleLogin()}>
             Sign In
           </button>
-          <DividerComponent />
-          <div className={styles.alternativeSignUpContainer}>
-            <FacebookIcon sx={{ fontSize: "35px" }} />
-          </div>
         </div>
       </section>
       <Backdrop

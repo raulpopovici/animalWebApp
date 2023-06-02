@@ -18,7 +18,7 @@ export interface IUserLogin {
 export enum UserLoginState {
   email,
   password,
-  registerErrors,
+  loginErrors,
 }
 
 export const newEmailUpdate = (data: string) =>
@@ -26,7 +26,7 @@ export const newEmailUpdate = (data: string) =>
 export const newPasswordUpdate = (data: string) =>
   createAction(UserLoginState.password, data);
 export const newLoginErrorsUpdate = (data: errors) =>
-  createAction(UserLoginState.registerErrors, data);
+  createAction(UserLoginState.loginErrors, data);
 
 type EmailUpdate = ReturnType<typeof newEmailUpdate>;
 type PasswordUpdate = ReturnType<typeof newPasswordUpdate>;
@@ -54,7 +54,7 @@ export const userLoginReducer = (
       return { ...state, email: action.payload };
     case UserLoginState.password:
       return { ...state, password: action.payload };
-    case UserLoginState.registerErrors:
+    case UserLoginState.loginErrors:
       return { ...state, loginErrors: action.payload };
     default:
       return state;

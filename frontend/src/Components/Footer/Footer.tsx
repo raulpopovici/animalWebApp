@@ -8,13 +8,12 @@ export const Footer = () => {
       <div className={styles.footerMiddleContainer}>
         <div
           style={{
-            fontFamily: "Open Sans, sans-serif",
+            fontFamily: "Covered By Your Grace, cursive",
             color: "#fff",
-            fontSize: "40px",
+            fontSize: "50px",
           }}
         >
-          {" "}
-          Petopia{" "}
+          Petopia
         </div>
         <div style={{ fontFamily: "Open Sans, sans-serif", color: "#fff" }}>
           Connecting Hearts and Paws: Nourish. Adopt. Mate{" "}

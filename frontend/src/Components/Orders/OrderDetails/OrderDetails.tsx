@@ -2,6 +2,7 @@ import { IOrder } from "../../../Interfaces/OrdersPageInterfaces";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 import styles from "./OrderDetails.module.css";
+import { convertDate, createDeliveryDate } from "../../../Utils/functions";
 export const OrderDetails = ({ order }: { order: IOrder }) => {
   return (
     <div className={styles.containerOrderDetails}>
@@ -11,11 +12,16 @@ export const OrderDetails = ({ order }: { order: IOrder }) => {
           <div className={styles.datesContainer}>
             <div>
               <div className={styles.headerText}>Transaction Date</div>
-              <div className={styles.addressDetailsText}>12.03.2022</div>
+              <div className={styles.addressDetailsText}>
+                {convertDate(order.createdAt)}
+              </div>
             </div>
             <div>
               <div className={styles.headerText}>Delivery Date</div>
-              <div className={styles.addressDetailsText}>12.03.2022</div>
+              <div className={styles.addressDetailsText}>
+                {createDeliveryDate(order.createdAt, 4)} -{" "}
+                {createDeliveryDate(order.createdAt, 10)}
+              </div>
             </div>
           </div>
           <hr className={styles.hrStyle} />

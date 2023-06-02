@@ -8,7 +8,7 @@
 
 .rightContainer {
   display: flex;
-  background-color: #f2e9e4;
+  background-color: #1e3647;
   flex-direction: column;
   height: 100vh;
   width: 500px;
@@ -43,10 +43,10 @@
   justify-content: space-evenly;
   border: 1px solid #f2e9e4;
   border-radius: 10px;
-  background-color: #8a0d56;
+  background-color: #1e3647;
   color: #fff;
   font-size: 19px;
-  font-family: "Oswald", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 500;
 }
 
@@ -60,11 +60,11 @@
   justify-self: center;
   border: 1px solid #f2e9e4;
   border-radius: 10px;
-  background-color: #8a0d56;
+  background-color: #1e3647;
   margin-bottom: 10%;
   color: #fff;
   font-size: 19px;
-  font-family: "Oswald", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 500;
 }
 
@@ -76,8 +76,14 @@
 
 .loginButton:hover {
   cursor: pointer;
-  background-color: #fff;
-  color: #8a0d56;
+  background-color: #4b5e6c;
+  border: 1px solid #4b5e6c;
+  color: #fff;
+}
+
+.loginButton:active {
+  background-color: #364a59;
+  border: 1px solid #364a59;
 }
 
 .passwordContainer {
@@ -88,9 +94,10 @@
 }
 
 .text {
-  font-family: "Oswald", sans-serif;
-  font-weight: 400;
-  font-size: 18px;
+  color: hsla(0, 0%, 10%, 0.7);
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  padding-bottom: 3px;
 }
 
 .alternativeSignUpContainer {
@@ -109,7 +116,7 @@
 
 .errorText {
   color: red;
-  font-family: "Oswald", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 600;
   font-size: 12px;
 }

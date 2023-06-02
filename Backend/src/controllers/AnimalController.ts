@@ -8,6 +8,7 @@ import {
   getAnimalsByUser,
   getAdoptionOrFindMateAnimals,
   getAdoptionOrFindMateAnimalsCount,
+  generatePotentialMathes,
 } from "../services/AnimalService";
 
 router.post("/api/createAnimal", createAnimal);
@@ -22,5 +23,7 @@ router.get(
   "/api/getAdoptionOrFindMateAnimalsCount",
   getAdoptionOrFindMateAnimalsCount
 );
+
+router.get("/api/getPossibleMatches", generatePotentialMathes);
 
 module.exports = router;
