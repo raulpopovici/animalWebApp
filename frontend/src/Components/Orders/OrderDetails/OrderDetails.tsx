@@ -86,7 +86,7 @@ export const OrderDetails = ({ order }: { order: IOrder }) => {
                       {product.product.brand}
                     </div>
                     <div className={styles.productName}>
-                      {product.product.productWeight}g
+                      {product.product.productWeight}kg
                     </div>
                   </div>
                 </div>

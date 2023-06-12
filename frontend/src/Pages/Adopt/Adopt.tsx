@@ -120,6 +120,7 @@ const Adopt = () => {
     image1: "",
     image2: "",
     image3: "",
+    forAdoption: false,
     user: {
       firstName: "",
       lastName: "",

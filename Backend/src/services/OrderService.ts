@@ -121,4 +121,109 @@ export const getOrders = async (req: Request, res: Response) => {
     console.log("error getting orders -> ", err);
   }
 };
-module.exports = { createOrder, createOrderFromCart, getOrders };
+
+export const getAllOrdersAdmin = async (req: Request, res: Response) => {
+  const token = req.cookies.token;
+
+  if (!token) return res.status(401).json({ error: "Not authenticated" });
+
+  const { email }: any = jwt.verify(token, process.env.JWT_SECRET);
+  const user = await AppDataSource.getRepository(User).findOne({
+    where: { email },
+  });
+
+  if (user.isAdmin === false)
+    return res.status(401).json({ error: "Not an admin, not permited" });
+
+  const pageNumber = req.query.pageNumber > 0 ? req.query.pageNumber : 1;
+
+  try {
+    const result = await AppDataSource.getRepository(Order).find({
+      skip: (pageNumber - 1) * 5,
+      take: 5,
+    });
+
+    const orders: IOrderAdmin[] = [];
+    result.forEach((order) => {
+      const orderObj: IOrderAdmin = {
+        orderID: order.id,
+        Subtotal: order.subtotal,
+        Total: order.total,
+        CreatedAt: order.createdAt,
+      };
+      orders.push(orderObj);
+    });
+    return res.status(200).json(orders);
+  } catch (err) {
+    console.log("error getting orders -> ", err);
+  }
+};
+
+export const getOrderTotalPerDay = async (req: Request, res: Response) => {
+  const token = req.cookies.token;
+
+  if (!token) return res.status(401).json({ error: "Not authenticated" });
+
+  const { email }: any = jwt.verify(token, process.env.JWT_SECRET);
+  const user = await AppDataSource.getRepository(User).findOne({
+    where: { email },
+  });
+
+  if (user.isAdmin === false)
+    return res.status(401).json({ error: "Not an admin, not permited" });
+
+  try {
+    const result = await AppDataSource.getRepository(Order).find();
+
+    const orders: IOrderByCreatedData[] = [];
+    result.forEach((order) => {
+      const createdAt = new Date(order.createdAt);
+      const dayKey = new Date(
+        createdAt.getFullYear(),
+        createdAt.getMonth(),
+        createdAt.getDate()
+      );
+
+      const existingOrder = orders.find(
+        (o) =>
+          o.createdAt.getFullYear() === dayKey.getFullYear() &&
+          o.createdAt.getMonth() === dayKey.getMonth() &&
+          o.createdAt.getDate() === dayKey.getDate()
+      );
+
+      const total = Number(order.total);
+      if (existingOrder) {
+        existingOrder.Total = Number(existingOrder.Total) + total;
+        existingOrder.Total = Number(existingOrder.Total.toFixed(2));
+      } else {
+        const orderObj: IOrderByCreatedData = {
+          Total: total,
+          createdAt: dayKey,
+        };
+        orders.push(orderObj);
+      }
+    });
+    return res.status(200).json(orders);
+  } catch (err) {
+    console.log("error getting orders -> ", err);
+  }
+};
+
+interface IOrderByCreatedData {
+  createdAt: Date;
+  Total: number;
+}
+
+interface IOrderAdmin {
+  orderID: string;
+  Subtotal: number;
+  Total: number;
+  CreatedAt: Date;
+}
+module.exports = {
+  createOrder,
+  createOrderFromCart,
+  getOrders,
+  getAllOrdersAdmin,
+  getOrderTotalPerDay,
+};

@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Home.module.css";
 import cat from "../../Assets/cat.jpg";
+import homeDog from "../../Assets/homeDog.jpeg";
 
 const Home = () => {
   return (
@@ -11,11 +12,15 @@ const Home = () => {
           <div className={styles.quoteAndPictureContainerMiddleColumn_text}>
             We Care As Much As You Do!
           </div>
-          <img src={cat} className={styles.secondPicture} />
+          <img src={homeDog} className={styles.secondPicture} />
         </div>
       </div>
-      <div className={styles.pageGridSecondRow}>Second Row</div>
-      <div className={styles.pageGridThirdRow}>Third Row</div>
+      <div className={styles.pageGridSecondRow}>
+        <div className={styles.littleSquare1}>Nourish</div>
+        <div className={styles.littleSquare2}>Adopt</div>
+        <div className={styles.littleSquare3}>Mate</div>
+        <div className={styles.littleSquare4}>Love</div>
+      </div>
     </div>
   );
 };

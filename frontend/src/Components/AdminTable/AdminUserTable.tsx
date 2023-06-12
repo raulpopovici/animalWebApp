@@ -68,6 +68,7 @@ export const AdminTable = ({
         boxShadow: "sm",
         borderRadius: "sm",
         fontFamily: "Open Sans, sans-serif",
+        marginRight: "30px",
       }}
     >
       <EnhancedTableToolbar />

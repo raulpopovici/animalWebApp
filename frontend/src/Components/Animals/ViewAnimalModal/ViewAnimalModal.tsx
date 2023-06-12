@@ -27,7 +27,7 @@ export const ViewAnimalModal = ({
       <ModalDialog
         aria-labelledby="dialog-vertical-scroll-title"
         layout="center"
-        sx={{ height: "700px", width: "1000px" }}
+        sx={{ height: "900px", width: "1000px" }}
       >
         <ModalClose />
         <div style={{ overflowY: "auto" }}>
@@ -255,6 +255,18 @@ export const ViewAnimalModal = ({
                 <div className={styles.animalDetailsText}>Country: </div>
                 <div className={styles.animalDetailsText2}>
                   {animal.user.country}
+                </div>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
+              >
+                <div className={styles.animalDetailsText}>Phone number: </div>
+                <div className={styles.animalDetailsText2}>
+                  {animal.user.phoneNumber}
                 </div>
               </div>
             </div>

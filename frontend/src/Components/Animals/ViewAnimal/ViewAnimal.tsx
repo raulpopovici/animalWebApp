@@ -3,6 +3,7 @@ import styles from "./ViewAnimal.module.css";
 import { Animal } from "../../../Interfaces/AnimalPageInterface";
 import ClearIcon from "@mui/icons-material/Clear";
 import axios from "axios";
+import { Chip } from "@mui/joy";
 
 export const ViewAnimal = ({
   animal,
@@ -134,6 +135,11 @@ export const ViewAnimal = ({
       >
         <ClearIcon />
       </button>
+      <Chip
+        sx={{ position: "absolute", left: 10, top: 10, bgcolor: "#69968c" }}
+      >
+        {animal.forAdoption ? "For Adoption" : "Find Mate"}
+      </Chip>
     </section>
   );
 };

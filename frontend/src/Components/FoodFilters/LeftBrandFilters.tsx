@@ -12,7 +12,7 @@ const LeftBrandFilters = ({
   return (
     <>
       <CheckBoxV2
-        text={"Brand 1"}
+        text={"Chappi"}
         selected={checkIfLeftFilterSelected(leftFilters, 1, 2)}
         index={1}
         leftFilters={leftFilters}
@@ -20,7 +20,7 @@ const LeftBrandFilters = ({
         dispatchFoodReducerData={dispatchFoodReducerData}
       />
       <CheckBoxV2
-        text={"Brand 2"}
+        text={"Royal Canin"}
         selected={checkIfLeftFilterSelected(leftFilters, 2, 2)}
         index={2}
         leftFilters={leftFilters}
@@ -28,7 +28,7 @@ const LeftBrandFilters = ({
         dispatchFoodReducerData={dispatchFoodReducerData}
       />
       <CheckBoxV2
-        text={"Brand 3"}
+        text={"Whiskas"}
         selected={checkIfLeftFilterSelected(leftFilters, 3, 2)}
         index={3}
         leftFilters={leftFilters}
@@ -36,7 +36,7 @@ const LeftBrandFilters = ({
         dispatchFoodReducerData={dispatchFoodReducerData}
       />
       <CheckBoxV2
-        text={"Brand 4"}
+        text={"Tropical Pond"}
         selected={checkIfLeftFilterSelected(leftFilters, 4, 2)}
         index={4}
         leftFilters={leftFilters}
@@ -44,7 +44,7 @@ const LeftBrandFilters = ({
         dispatchFoodReducerData={dispatchFoodReducerData}
       />
       <CheckBoxV2
-        text={"Brand 5"}
+        text={"Pedigree"}
         selected={checkIfLeftFilterSelected(leftFilters, 5, 2)}
         index={5}
         leftFilters={leftFilters}

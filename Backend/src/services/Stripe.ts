@@ -45,7 +45,6 @@ export const postStripe = async (req, res) => {
             currency: "usd",
           },
           display_name: "Free shipping",
-          // Delivers between 5-7 business days
           delivery_estimate: {
             minimum: {
               unit: "business_day",
@@ -66,7 +65,6 @@ export const postStripe = async (req, res) => {
             currency: "usd",
           },
           display_name: "Next day air",
-          // Delivers in exactly 1 business day
           delivery_estimate: {
             minimum: {
               unit: "business_day",

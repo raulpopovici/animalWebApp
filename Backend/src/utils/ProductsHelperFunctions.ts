@@ -79,7 +79,7 @@ export const convertBrandToString = (brands: string[]) => {
   for (const brand of brands) {
     switch (brand) {
       case "1": {
-        convertBrandToString.push("brand1");
+        convertBrandToString.push("Chappi");
         break;
       }
       case "2": {

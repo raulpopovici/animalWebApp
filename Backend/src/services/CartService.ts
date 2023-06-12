@@ -75,7 +75,7 @@ export const modifyCartItem = async (req: Request, res: Response) => {
       productInCart = CartProduct.create({
         productId: productId,
         cartId: cartId,
-        quantity: 1,
+        quantity: quantityModified,
       });
     } else {
       productInCart = CartProduct.create({

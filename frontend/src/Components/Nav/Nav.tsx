@@ -38,9 +38,11 @@ const Nav = ({ cartSize }: { cartSize: number }) => {
   let animalCSSClassName = styles.thirdCenterButtonContainer;
   let cartCSSClassName = styles.cartIconClassName;
 
+  console.log(location);
+
   if (location === "/") {
     homeCSSClassName = styles.navButtonActive;
-  } else if (location === "/food") {
+  } else if (location.startsWith("/food")) {
     foodCSSClassName = styles.navButtonActive;
   } else if (location === "/adopt" || location === "/find-mate") {
     animalCSSClassName = styles.navAnimalButtonActive;

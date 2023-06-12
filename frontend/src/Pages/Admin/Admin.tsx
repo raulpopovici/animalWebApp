@@ -44,9 +44,6 @@ export const Admin = () => {
             <Tab variant={index === 2 ? "solid" : "plain"} value={2}>
               Orders
             </Tab>
-            <Tab variant={index === 3 ? "solid" : "plain"} value={3}>
-              Animals
-            </Tab>
           </TabList>
           <TabPanel value={0} sx={{ paddingLeft: 2 }}>
             <AdminUsers />
@@ -56,9 +53,6 @@ export const Admin = () => {
           </TabPanel>
           <TabPanel value={2} sx={{ paddingLeft: 2, minHeight: 200 }}>
             <AdminOrders />
-          </TabPanel>
-          <TabPanel value={3} sx={{ paddingLeft: 2, minHeight: 200 }}>
-            <AdminAnimals />
           </TabPanel>
         </Tabs>
       </div>

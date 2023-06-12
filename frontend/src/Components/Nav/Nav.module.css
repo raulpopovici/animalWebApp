@@ -4,9 +4,9 @@
   width: 80px;
   justify-content: center;
   align-items: center;
-  border: 1px solid #f2e9e4;
+  border: 1px solid #009b9e;
   border-radius: 10px;
-  background-color: #82218b;
+  background-color: #009b9e;
   color: #fff;
   font-size: 18px;
   text-transform: uppercase;
@@ -18,7 +18,8 @@
 
 .signinButton:hover {
   cursor: pointer;
-  background-color: #8a0d56;
+  background-color: #cccccc;
+  border: 1px solid #cccccc;
   color: #fff;
 }
 

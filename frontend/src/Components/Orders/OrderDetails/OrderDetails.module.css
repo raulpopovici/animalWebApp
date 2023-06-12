@@ -1,5 +1,6 @@
 .containerOrderDetails {
   display: flex;
+  padding-right: 20px;
 }
 .ordersHeader {
   font-size: 32px;

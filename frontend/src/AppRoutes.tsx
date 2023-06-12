@@ -20,7 +20,7 @@ const Login = lazy(() => import("./Pages/Login/Login"));
 const Register = lazy(() => import("./Pages/Register/Register"));
 const Home = lazy(() => import("./Pages/Home/Home"));
 const Food = lazy(() => import("./Pages/Food/Food"));
-const ViewProduct = lazy(() => import("./Components/ViewProduct/ViewProduct"));
+const ViewProduct = lazy(() => import("./Pages/ViewProduct/ViewProduct"));
 const Cart = lazy(() => import("./Pages/Cart/Cart"));
 const CheckoutSuccess = lazy(() => import("./Pages/Checkout/CheckoutSuccess"));
 const Profile = lazy(() => import("./Pages/Profile/Profile"));

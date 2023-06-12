@@ -12,12 +12,6 @@ export const productsTablehead = [
     label: "Price",
   },
   {
-    id: "quantity",
-    numeric: false,
-    disablePadding: true,
-    label: "Quantity",
-  },
-  {
     id: "animalType",
     numeric: true,
     disablePadding: false,
@@ -34,6 +28,12 @@ export const productsTablehead = [
     numeric: true,
     disablePadding: false,
     label: "Product Weight",
+  },
+  {
+    id: "valueSold",
+    numeric: true,
+    disablePadding: false,
+    label: "Total Sold",
   },
 ];
 
@@ -81,6 +81,50 @@ export const usersTablehead = [
     label: "Country",
   },
 ];
+
+export const ordersTablehead = [
+  {
+    id: "orderID",
+    numeric: true,
+    disablePadding: false,
+    label: "Order ID",
+  },
+  {
+    id: "Subtotal",
+    numeric: false,
+    disablePadding: true,
+    label: "Subtotal",
+  },
+  {
+    id: "Total",
+    numeric: false,
+    disablePadding: true,
+    label: "Total",
+  },
+  {
+    id: "Created At",
+    numeric: true,
+    disablePadding: false,
+    label: "Created At",
+  },
+];
+
+export interface orderRows {
+  orderID: string;
+  Subtotal: number;
+  Total: number;
+  CreatedAt: string;
+}
+
+export interface productRows {
+  quantity: number;
+  id: string;
+  name: string;
+  price: number;
+  animalType: string;
+  brand: string;
+  productWeight: number;
+}
 
 export interface userRows {
   id: string;

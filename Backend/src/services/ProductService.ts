@@ -283,11 +283,58 @@ export const getAllProductsForAdmin = async (req: Request, res: Response) => {
       totalQuantity: row.totalQuantity,
     }));
 
-    return res.json(productQuantities);
+    const productRepository = AppDataSource.getRepository(Product);
+    const products = await productRepository.find({
+      skip: (pageNumber - 1) * 5,
+      take: 5,
+    });
+
+    let productAux: products;
+    let productArray: products[] = [];
+
+    products.forEach((product) => {
+      const productQuantity = productQuantities.find(
+        (p) => p.productId === product.id
+      );
+      if (productQuantity) {
+        productAux = {
+          quantity: productQuantity.totalQuantity,
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          animalType: product.animalType,
+          brand: product.brand,
+          productWeight: product.productWeight,
+        };
+      } else {
+        productAux = {
+          quantity: 0,
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          animalType: product.animalType,
+          brand: product.brand,
+          productWeight: product.productWeight,
+        };
+      }
+      productArray.push(productAux);
+    });
+    productArray.sort((a, b) => b.quantity - a.quantity);
+    return res.json(productArray);
   } catch {
-    console.log("error updating user info");
+    console.log("error getting the products");
   }
 };
+
+interface products {
+  quantity: number;
+  id: string;
+  name: string;
+  price: number;
+  animalType: string;
+  brand: string;
+  productWeight: number;
+}
 
 module.exports = {
   getProducts,

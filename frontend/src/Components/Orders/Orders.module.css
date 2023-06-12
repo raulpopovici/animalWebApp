@@ -13,6 +13,7 @@
 .sectionStyle {
   flex-direction: row-reverse;
   margin-bottom: 50px;
+  padding-right: 30px;
 }
 
 .orderContainer {

@@ -10,10 +10,10 @@ import { useState } from "react";
 import React from "react";
 import Slide, { SlideProps } from "@mui/material/Slide";
 import MuiAlert, { AlertProps } from "@mui/material/Alert";
-import { State } from "../../Pages/Food/Food";
-import SnackbarV2 from "../Snackbar/Snackbar";
+import { State } from "../Food/Food";
+import SnackbarV2 from "../../Components/Snackbar/Snackbar";
 import { useAuthState } from "../../Context/AuthContext";
-import { handleAddToCart } from "../../Pages/Cart/CartController";
+import { handleAddToCart } from "../Cart/CartController";
 
 const ViewProduct = ({ toggleCartState }: { toggleCartState: () => void }) => {
   const location = useLocation();
@@ -75,7 +75,7 @@ const ViewProduct = ({ toggleCartState }: { toggleCartState: () => void }) => {
           </div>
           <div className={styles.middlePageProductContainerColumn2}>
             <div className={styles.middlePageProductContainerColumn2Row1}>
-              {product.name + ", " + product.productWeight + "g"}
+              {product.name + ", " + product.productWeight + "kg"}
             </div>
 
             <div className={styles.middlePageProductContainerColumn2Row2}>
@@ -104,13 +104,13 @@ const ViewProduct = ({ toggleCartState }: { toggleCartState: () => void }) => {
                     "&:hover": {
                       cursor: "pointer",
                     },
-                    color: "#ada26f",
+                    color: "#009b9e",
                   }}
                   onClick={() => changeQuantity(false)}
                 />
                 <div
                   style={{
-                    color: "#ada26f",
+                    color: "#009b9e",
                     fontFamily: "Open Sans, sans-serif",
                     fontSize: "20px",
                   }}
@@ -123,7 +123,7 @@ const ViewProduct = ({ toggleCartState }: { toggleCartState: () => void }) => {
                     "&:hover": {
                       cursor: "pointer",
                     },
-                    color: "#ada26f",
+                    color: "#009b9e",
                   }}
                   fontSize="medium"
                   onClick={() => changeQuantity(true)}

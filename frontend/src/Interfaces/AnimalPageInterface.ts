@@ -10,6 +10,7 @@ export interface Animal {
   image1: string;
   image2: string;
   image3: string;
+  forAdoption: boolean;
   user: {
     firstName: string;
     lastName: string;

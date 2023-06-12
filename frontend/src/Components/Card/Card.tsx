@@ -83,7 +83,7 @@ export const CardComponent = ({
       />
       <CardContent>
         <div className={styles.cardText}>
-          {product.name} , {product.productWeight + "g"}
+          {product.name} , {product.productWeight + "kg"}
         </div>
         <div
           style={{ display: "flex", flexDirection: "row", marginTop: "10px" }}

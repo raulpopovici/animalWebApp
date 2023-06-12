@@ -6,9 +6,9 @@ import Sheet from "@mui/joy/Sheet";
 import IconButton from "@mui/joy/IconButton";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import { userRows, productsTablehead, productRows } from "./tableHead";
+import { orderRows, ordersTablehead } from "./tableHead";
 
-const tableHeadCells = productsTablehead;
+const tableHeadCells = ordersTablehead;
 
 const TableHead = () => {
   return (
@@ -41,7 +41,7 @@ const EnhancedTableToolbar = () => {
         id="tableTitle"
         component="div"
       >
-        Products
+        Orders
       </Typography>
     </Box>
   );
@@ -52,7 +52,7 @@ export const AdminTable = ({
   pageNumber,
   changePageNumber,
 }: {
-  rows: productRows[];
+  rows: orderRows[];
   pageNumber: number;
   changePageNumber: (newPageNumber: number) => void;
 }) => {
@@ -60,7 +60,6 @@ export const AdminTable = ({
     console.log("newPage", newPage);
     changePageNumber(newPage);
   };
-
   return (
     <Sheet
       variant="outlined"
@@ -94,19 +93,17 @@ export const AdminTable = ({
             return (
               <tr>
                 <th scope="row"></th>
-                <td>{row.name}</td>
-                <td>{row.price}</td>
-                <td>{row.animalType}</td>
-                <td>{row.brand}</td>
-                <td>{row.productWeight}</td>
-                <td>{row.quantity}</td>
+                <td scope="row">{row.orderID}</td>
+                <td>{row.Subtotal}</td>
+                <td>{row.Total}</td>
+                <td>{row.CreatedAt}</td>
               </tr>
             );
           })}
         </tbody>
         <tfoot>
           <tr>
-            <td colSpan={7}>
+            <td colSpan={5}>
               <Box
                 sx={{
                   display: "flex",

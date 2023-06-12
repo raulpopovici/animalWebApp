@@ -117,7 +117,7 @@ export const Animals = () => {
           aria-label="add"
           sx={{
             position: "fixed",
-            bottom: 50,
+            bottom: 100,
             right: 50,
             bgcolor: "#1e3647",
             "&:hover": { bgcolor: "#4b5e6c" },

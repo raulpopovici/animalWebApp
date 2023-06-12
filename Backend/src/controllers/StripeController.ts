@@ -22,7 +22,6 @@ router.post(
   async (request, response) => {
     const sig = request.headers["stripe-signature"];
     const body = request.body;
-
     if (!sig) {
       return response.status(400).send("Missing stripe-signature header");
     }
@@ -45,16 +44,12 @@ router.post(
       console.error("Webhook verification failed:", err);
       return response.status(400).send(`Webhook Error: ${err.message}`);
     }
-
     data = request.body.data.object;
     eventType = request.body.type;
-
     if (eventType === "checkout.session.completed") {
       stripe.customers
         .retrieve(data.customer)
         .then((customer) => {
-          //   console.log(customer);
-          //   console.log(data);
           createOrder(customer, data);
         })
         .catch((err) => {
