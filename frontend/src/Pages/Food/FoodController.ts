@@ -15,7 +15,6 @@ export const topFiltersChangeState = (
   } else {
     topFilters.push(index);
   }
-
   dispatchFoodReducerData({ type: FoodState.topFilters, payload: topFilters });
 };
 

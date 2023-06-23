@@ -145,7 +145,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       .get("/me")
       .then((res) => {
         if (res.data) {
-          console.log("sadasd" + res.data.isAdmin);
           dispatch({
             type: "LOGIN",
             payload: {

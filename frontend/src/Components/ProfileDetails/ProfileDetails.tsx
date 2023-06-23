@@ -179,23 +179,8 @@ export const ProfileDetails = () => {
             Save Details
           </button>
         </section>
-        <h1 className={styles.profileDetailsHeader}>Change Password</h1>
-        <section className={styles.sectionPassword}>
-          <div>
-            <div className={styles.inputTextStyle}>Current password</div>
-            <input className={styles.inputStyle}></input>
-          </div>
 
-          <div>
-            <div className={styles.inputTextStyle}>New password</div>
-            <input className={styles.inputStyle}></input>
-          </div>
-          <div>
-            <div className={styles.inputTextStyle}>Confirm new password</div>
-            <input className={styles.inputStyle}></input>
-          </div>
-          <button className={styles.saveDetailsButton}>Save password</button>
-        </section>
+        <section className={styles.sectionPassword}></section>
       </div>
       <SnackbarV2 state={state} setState={(state: State) => setState(state)} />
     </div>
