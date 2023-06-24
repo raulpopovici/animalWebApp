@@ -28,7 +28,6 @@ export const createAnimal = async (req: Request, res: Response) => {
       forAdoption,
     } = req.body;
 
-    // Create a new animal entity
     const animal = new Animal();
     animal.name = name;
     animal.breed = breed;
@@ -52,11 +51,8 @@ export const createAnimal = async (req: Request, res: Response) => {
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
-
-    // Assign the animal to the user
     animal.user = user;
 
-    // Save the new animal entity to the database
     const animalRepository = AppDataSource.getRepository(Animal);
     const savedAnimal = await animalRepository.save(animal);
 

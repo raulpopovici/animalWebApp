@@ -129,15 +129,15 @@ export const convertTasteToString = (tastes: string[]) => {
   for (const taste of tastes) {
     switch (taste) {
       case "1": {
-        convertTasteToString.push("beef");
+        convertTasteToString.push("Chicken");
         break;
       }
       case "2": {
-        convertTasteToString.push("chicken");
+        convertTasteToString.push("Beef");
         break;
       }
       case "3": {
-        convertTasteToString.push("pork");
+        convertTasteToString.push("Lamb");
         break;
       }
     }
