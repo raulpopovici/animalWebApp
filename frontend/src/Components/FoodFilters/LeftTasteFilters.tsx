@@ -12,7 +12,7 @@ const LeftTasteFilters = ({
   return (
     <>
       <CheckBoxV2
-        text={"Taste 1"}
+        text={"Chicken"}
         selected={checkIfLeftFilterSelected(leftFilters, 1, 4)}
         index={1}
         leftFilters={leftFilters}
@@ -20,7 +20,7 @@ const LeftTasteFilters = ({
         dispatchFoodReducerData={dispatchFoodReducerData}
       />
       <CheckBoxV2
-        text={"Taste 2"}
+        text={"Beef"}
         selected={checkIfLeftFilterSelected(leftFilters, 2, 4)}
         index={2}
         leftFilters={leftFilters}
@@ -28,7 +28,7 @@ const LeftTasteFilters = ({
         dispatchFoodReducerData={dispatchFoodReducerData}
       />
       <CheckBoxV2
-        text={"Taste 3"}
+        text={"Lamb"}
         selected={checkIfLeftFilterSelected(leftFilters, 3, 4)}
         index={3}
         leftFilters={leftFilters}
