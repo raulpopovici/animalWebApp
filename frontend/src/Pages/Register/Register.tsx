@@ -24,7 +24,6 @@ interface ResponseData {
     email: string;
     firstName: string;
     lastName: string;
-    // ... other user properties
   };
 }
 const Register = () => {
@@ -69,22 +68,18 @@ const Register = () => {
       return response;
     } catch (error: any) {
       if (error.response.data !== undefined) {
-        // The request was made and the server responded with a status code
-        // that falls out of the range of 2xx
         dispatchUserReducerData({
           type: UserRegisterState.registerErrors,
           payload: error.response.data,
         });
         console.log(userReducerData.registerErrors);
       } else if (error.request) {
-        // The request was made but no response was received
         console.log(error.request);
       } else {
-        // Something happened in setting up the request that triggered an Error
         console.log("Error", error.message);
       }
       console.log(error.config);
-      throw error; // Rethrow the error to handle it at a higher level
+      throw error;
     }
   };
 

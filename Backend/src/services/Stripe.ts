@@ -1,6 +1,6 @@
 const Stripe = require("stripe");
 const express = require("express");
-const YOUR_DOMAIN = "http://localhost:3000";
+const DOMAIN = "http://localhost:3000";
 require("dotenv").config();
 const app = express();
 app.use(express.static("public"));
@@ -84,8 +84,8 @@ export const postStripe = async (req, res) => {
     customer: customer.id,
     line_items: line_items,
     mode: "payment",
-    success_url: `${YOUR_DOMAIN}/checkout-success`,
-    cancel_url: `${YOUR_DOMAIN}/cart`,
+    success_url: `${DOMAIN}/checkout-success`,
+    cancel_url: `${DOMAIN}/cart`,
   });
 
   res.send({ url: session.url });

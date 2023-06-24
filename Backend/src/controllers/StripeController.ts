@@ -1,7 +1,7 @@
 import express = require("express");
 const router = express.Router();
 const Stripe = require("stripe");
-const YOUR_DOMAIN = "http://localhost:3000";
+const DOMAIN = "http://localhost:3000";
 require("dotenv").config();
 const app = express();
 app.use(express.static("public"));
@@ -12,7 +12,6 @@ import { createOrder } from "../services/OrderService";
 
 router.post("/api/create-checkout-session", postStripe);
 
-// This is your Stripe CLI webhook secret for testing your endpoint locally.
 const endpointSecret =
   "whsec_9e91a5e4d703dffbfffd1859c3377f4d2caceb63f20d407b31e11a504ad24b6b";
 

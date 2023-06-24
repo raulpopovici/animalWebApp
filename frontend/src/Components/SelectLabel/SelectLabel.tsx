@@ -4,10 +4,6 @@ import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { AnimalData, PriceData } from "../../Interfaces/FoodPageInterfaces";
 
-// function isAnimal(x: AnimalData | PriceData): x is AnimalData {
-//   return (x as AnimalData).type !== undefined;
-// }
-
 export const SelectLabels = ({
   animals,
   prices,
