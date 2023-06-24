@@ -67,7 +67,7 @@ export const modifyCartItem = async (req: Request, res: Response) => {
 
   try {
     let productAlreadyCart = await CartProduct.findOne({
-      where: { productId: productId },
+      where: { productId: productId, cartId: cartId },
     });
 
     let productInCart;

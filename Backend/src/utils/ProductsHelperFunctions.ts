@@ -83,19 +83,19 @@ export const convertBrandToString = (brands: string[]) => {
         break;
       }
       case "2": {
-        convertBrandToString.push("brand2");
+        convertBrandToString.push("Royal Canin");
         break;
       }
       case "3": {
-        convertBrandToString.push("brand3");
+        convertBrandToString.push("Whiskas");
         break;
       }
       case "4": {
-        convertBrandToString.push("brand4");
+        convertBrandToString.push("Tropical Pond");
         break;
       }
       case "5": {
-        convertBrandToString.push("brand5");
+        convertBrandToString.push("Pedigree");
         break;
       }
     }

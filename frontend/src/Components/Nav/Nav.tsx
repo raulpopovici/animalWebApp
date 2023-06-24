@@ -37,6 +37,7 @@ const Nav = ({ cartSize }: { cartSize: number }) => {
   let foodCSSClassName = styles.secondCenterButtonContainer;
   let animalCSSClassName = styles.thirdCenterButtonContainer;
   let cartCSSClassName = styles.cartIconClassName;
+  let adminCSSClassName = styles.firstCenterButtonContainer;
 
   console.log(location);
 
@@ -48,6 +49,8 @@ const Nav = ({ cartSize }: { cartSize: number }) => {
     animalCSSClassName = styles.navAnimalButtonActive;
   } else if (location === "/cart") {
     cartCSSClassName = styles.cartIconClassNameActive;
+  } else if (location === "/admin") {
+    adminCSSClassName = styles.navButtonActive;
   }
 
   return (
@@ -80,7 +83,7 @@ const Nav = ({ cartSize }: { cartSize: number }) => {
           </div>
           {user.isAuth && user.user.isAdmin ? (
             <div
-              className={foodCSSClassName}
+              className={adminCSSClassName}
               onClick={() => navigate("/admin")}
             >
               Admin
